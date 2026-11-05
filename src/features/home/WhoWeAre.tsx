@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { ChevronRight } from 'lucide-react';
 import { WHO_WE_ARE_DATA, WhoWeAreContent } from '../../data/whoWeAre.data';
 
 export interface WhoWeAreProps {
@@ -71,56 +70,6 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ content = WHO_WE_ARE_DATA })
             </div>
           </motion.div>
         </div>
-
-        {/* ================= ROW OF 4 PILLAR CARDS ================= */}
-        <motion.div
-          initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: 24 }}
-          whileInView={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-60px' }}
-          transition={{ duration: 0.5, delay: shouldReduceMotion ? 0 : 0.16, ease: [0.16, 1, 0.3, 1] }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5"
-        >
-          {content.pillars.map((pillar, idx) => {
-            const IconComponent = pillar.icon;
-
-            return (
-              <motion.div
-                key={pillar.id}
-                whileHover={shouldReduceMotion ? {} : { y: -4 }}
-                transition={{ duration: 0.2, ease: 'easeOut' }}
-                className="group relative bg-white rounded-[16px] p-5 sm:p-6 border border-[#171717]/8 hover:border-[#ff4d12]/40 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between cursor-pointer overflow-hidden outline-none focus-within:ring-2 focus-within:ring-[#ff4d12]"
-              >
-                {/* Coloured Top Accent Border Line */}
-                <div 
-                  className="absolute top-0 left-0 right-0 h-1"
-                  style={{ backgroundColor: pillar.accentColor }}
-                />
-
-                {/* Top Section: Icon Tile + Chevron */}
-                <div className="flex items-center justify-between mb-4">
-                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-200 ${pillar.iconBgClass}`}>
-                    <IconComponent className={`w-5 h-5 transition-transform duration-200 group-hover:scale-110 ${pillar.iconColorClass}`} />
-                  </div>
-
-                  {/* Replacing "+" with Chevron that rotates on hover */}
-                  <div className="w-7 h-7 rounded-full bg-[#f3f0e8] flex items-center justify-center text-[#171717] group-hover:text-[#ff4d12] transition-colors">
-                    <ChevronRight className="w-4 h-4 transition-transform duration-200 group-hover:rotate-90 group-hover:translate-x-0.5" />
-                  </div>
-                </div>
-
-                {/* Bottom Section: Title & One-line Descriptor */}
-                <div className="space-y-1.5 pt-1">
-                  <h3 className="text-base sm:text-[17px] font-bold text-[#171717] tracking-tight group-hover:text-[#ff4d12] transition-colors">
-                    {pillar.title}
-                  </h3>
-                  <p className="text-xs sm:text-[13px] text-[#625E58] leading-relaxed line-clamp-2">
-                    {pillar.descriptor}
-                  </p>
-                </div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
 
       </div>
     </section>

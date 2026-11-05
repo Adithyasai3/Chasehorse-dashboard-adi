@@ -1,6 +1,7 @@
 import React from 'react';
 import { HeroSection } from './HeroSection';
 import { WhoWeAre } from './WhoWeAre';
+import { GelpLayersBand } from './GelpLayersBand';
 import { WhyGelp } from './WhyGelp';
 import { ThreeTierSection } from './ThreeTierSection';
 import { PlatformBenefitsSection } from './PlatformBenefitsSection';
@@ -13,6 +14,9 @@ export const HomePage: React.FC = () => {
 
       {/* 2. Section 1: Who We Are (Redesigned) */}
       <WhoWeAre />
+
+      {/* What sits inside GELP: dark band with the four operational layers */}
+      <GelpLayersBand />
 
       {/* 3. Section 2: Why ChaseHorse G.E.L.P.? (Redesigned) */}
       <WhyGelp />

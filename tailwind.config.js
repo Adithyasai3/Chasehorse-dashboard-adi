@@ -21,6 +21,15 @@ export default {
           card: '#FFFFFF',
         }
       },
+      keyframes: {
+        'pulse-ring': {
+          '0%': { transform: 'scale(1)', opacity: '0.6' },
+          '75%, 100%': { transform: 'scale(2.5)', opacity: '0' },
+        },
+      },
+      animation: {
+        'pulse-ring': 'pulse-ring 2s cubic-bezier(0, 0, 0.2, 1) infinite',
+      },
       fontFamily: {
         sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],

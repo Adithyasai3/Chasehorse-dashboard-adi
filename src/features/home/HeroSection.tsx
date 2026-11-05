@@ -41,13 +41,16 @@ export const HeroSection: React.FC = () => {
             {/* Eyebrow */}
             <div className="inline-flex items-center space-x-2 text-xs font-mono font-bold tracking-wider text-[#FF4D16] uppercase">
               <span className="w-2.5 h-2.5 border-2 border-[#FF4D16] rounded-sm bg-[#FF4D16]/20 inline-block" />
-              <span>FIELD OPERATIONS PLATFORM • INDIA</span>
+              <span>LOGISTICS &amp; SUPPLY CHAIN · INDIA</span>
             </div>
 
             {/* Main Editorial Headline */}
-            <div className="space-y-2">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#171717] tracking-tight leading-[1.05]">
-                Every field task, verified where it happens.
+            <div className="space-y-5">
+              <h1 className="font-display text-[30px] sm:text-5xl lg:text-[42px] xl:text-[52px] font-extrabold text-[#171717] tracking-tight leading-[1.05]">
+                <span className="block">You grow the business.</span>
+                <span className="block">
+                  We move it.
+                </span>
               </h1>
               <div className="text-sm sm:text-base font-mono font-bold text-[#FF4D16]">
                 Growth Enabler Logiworkx Platform [ GELP ]
@@ -56,7 +59,7 @@ export const HeroSection: React.FC = () => {
 
             {/* Subtitle Paragraph (From Who We Are in Image 2) */}
             <p className="text-sm sm:text-base text-[#625E58] leading-relaxed max-w-xl">
-              CHASEHORSE is a technology-driven logistics and supply chain transformation company delivering innovative solutions across industries globally. Connecting businesses with on-ground logistics execution, field workers, and real-time operations across India.
+              From warehousing and fleet management to freight and last-mile delivery, ChaseHorse handles your logistics end to end. Our Logistics-as-a-Service (LaaS) platform gives you a plug-and-play setup with ready-to-deploy resources. One partner, one platform, full visibility.
             </p>
 
             {/* The 4 Core Capability Pillars (From Odoo Website in Image 1 & 2) */}
@@ -85,20 +88,20 @@ export const HeroSection: React.FC = () => {
             </div>
 
             {/* Onboarding Thunderspeed Strip (From Image 3) */}
-            <div className="p-3.5 rounded-2xl bg-white border border-[#E2DED5] flex items-center justify-between text-xs shadow-sm">
+            <div className="p-3.5 rounded-2xl bg-white border border-[#E2DED5] flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-xs shadow-sm">
               <div className="flex items-center space-x-2">
                 <Zap className="w-4 h-4 text-[#FF4D16] fill-[#FF4D16]/20" />
-                <span className="font-bold text-[#171717]">Thunderspeed In Onboarding:</span>
+                <span className="font-bold text-[#171717]">Thunderspeed Onboarding:</span>
               </div>
-              <div className="flex items-center space-x-3 text-[11px] font-mono">
-                <span className="text-[#FF4D16] font-bold">24h Tier 1</span>
-                <span className="text-[#8C877D]">•</span>
-                <span className="text-[#171717] font-bold">48h Tier 2 Scale</span>
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-mono">
+                <span className="text-[#FF4D16] font-bold">24h Tier 1 Strategy Deployment</span>
+                <span className="hidden sm:inline text-[#8C877D]">•</span>
+                <span className="text-[#171717] font-bold">48h Tier 2 Operations Scale</span>
               </div>
             </div>
 
             {/* Primary Action Buttons */}
-            <div className="pt-2 flex flex-wrap items-center gap-3">
+            <div className="pt-2 flex flex-wrap items-center gap-x-2 gap-y-3">
               <Link
                 to="/solutions"
                 className="px-6 py-3.5 bg-[#FF4D16] hover:bg-[#E53E0B] text-white font-bold rounded-xl text-sm flex items-center space-x-2 shadow-lg shadow-[#FF4D16]/25 transition-all group"
@@ -116,10 +119,16 @@ export const HeroSection: React.FC = () => {
 
               <a
                 href="tel:+917337369111"
-                className="px-4 py-3.5 text-xs font-mono font-bold text-[#625E58] hover:text-[#FF4D16] transition-colors flex items-center space-x-1.5"
+                className="group/phone px-1 py-2.5 rounded-lg text-lg font-mono font-bold tracking-tight text-[#171717] hover:text-[#FF4D16] transition-colors duration-200 flex items-center gap-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF4D16]"
               >
-                <Phone className="w-3.5 h-3.5" />
-                <span>+91 7337369111</span>
+                <span className="relative flex w-2 h-2 shrink-0" aria-hidden="true">
+                  <span className="absolute inset-0 rounded-full bg-[#107C41] opacity-60 motion-safe:animate-pulse-ring" />
+                  <span className="relative w-2 h-2 rounded-full bg-[#107C41]" />
+                </span>
+                <Phone className="w-5 h-5 transition-transform duration-200 group-hover/phone:scale-110 motion-reduce:transition-none" />
+                <span className="relative after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-0.5 after:h-[2px] after:bg-[#FF4D16] after:origin-left after:scale-x-0 after:transition-transform after:duration-200 after:ease-out group-hover/phone:after:scale-x-100 motion-reduce:after:transition-none">
+                  +91 7337369111
+                </span>
               </a>
             </div>
 
