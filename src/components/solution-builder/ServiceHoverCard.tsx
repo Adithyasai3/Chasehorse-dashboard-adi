@@ -23,12 +23,6 @@ interface ServiceHoverCardProps {
   onToggleSelect: (serviceId: string) => void;
 }
 
-const currencyFormatter = new Intl.NumberFormat('en-IN', {
-  style: 'currency',
-  currency: 'INR',
-  maximumFractionDigits: 0,
-});
-
 export const ServiceHoverCard: React.FC<ServiceHoverCardProps> = ({
   service,
   isOpen,
@@ -167,21 +161,6 @@ export const ServiceHoverCard: React.FC<ServiceHoverCardProps> = ({
             {service.name}
           </h4>
 
-          {/* Price */}
-          <div className="mb-2.5">
-            <span
-              className="text-xl sm:text-2xl font-mono font-extrabold tracking-tight"
-              style={{ color: 'var(--acc)' }}
-            >
-              {currencyFormatter.format(service.price)}
-            </span>
-            <span
-              className="text-[11px] font-mono ml-1.5"
-              style={{ color: 'var(--mut)' }}
-            >
-              / deployment
-            </span>
-          </div>
 
           {/* One-line Description */}
           <p

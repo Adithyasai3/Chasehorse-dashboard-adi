@@ -10,21 +10,15 @@ import { ThemeSwitcher } from './ThemeSwitcher';
 import { TierTabs } from './TierTabs';
 import { GroupCard } from './GroupCard';
 import { SummaryPanel } from './SummaryPanel';
+import { BlueprintRequestModal } from './BlueprintRequestModal';
 import { ServiceHoverCard } from './ServiceHoverCard';
 
 export interface SolutionBuilderProps {
   initialSelectedIds?: string[];
-  onPay?: (selectedServices: Service[], total: number) => void;
 }
 
 export const SolutionBuilder: React.FC<SolutionBuilderProps> = ({
-  initialSelectedIds = [
-    't1-tms',
-    't1-warehouse-inspection',
-    't2-data-science-ml',
-    't3-scm-process',
-  ],
-  onPay,
+  initialSelectedIds = [],
 }) => {
   const shouldReduceMotion = useReducedMotion();
   const { theme, setTheme, themesList } = useTheme();
@@ -92,9 +86,8 @@ export const SolutionBuilder: React.FC<SolutionBuilderProps> = ({
     return counts;
   }, [selectedServicesList]);
 
-  const totalAmount = useMemo(() => {
-    return selectedServicesList.reduce((sum, s) => sum + s.price, 0);
-  }, [selectedServicesList]);
+  // Blueprint request form (contact details → WhatsApp)
+  const [requestOpen, setRequestOpen] = useState(false);
 
   const handleToggleService = useCallback((serviceId: string) => {
     setSelectedIds((prev) => {
@@ -164,30 +157,10 @@ export const SolutionBuilder: React.FC<SolutionBuilderProps> = ({
     [openForService]
   );
 
-  const handlePay = useCallback(
-    (selected: Service[], total: number) => {
-      if (onPay) {
-        onPay(selected, total);
-      } else {
-        console.log('💳 [SolutionBuilder:onPay] Checkout triggered:', {
-          servicesCount: selected.length,
-          totalINR: total,
-          services: selected.map((s) => ({ id: s.id, name: s.name, price: s.price })),
-        });
-      }
-    },
-    [onPay]
-  );
-
-  const currencyFormatter = useMemo(
-    () =>
-      new Intl.NumberFormat('en-IN', {
-        style: 'currency',
-        currency: 'INR',
-        maximumFractionDigits: 0,
-      }),
-    []
-  );
+  const handleSubmitBlueprint = useCallback(() => {
+    closeHover();
+    setRequestOpen(true);
+  }, [closeHover]);
 
   return (
     <div
@@ -213,7 +186,8 @@ export const SolutionBuilder: React.FC<SolutionBuilderProps> = ({
 
             <p className="text-sm sm:text-base leading-relaxed" style={{ color: 'var(--mut)' }}>
               Configure your bespoke operational logistics deployment across four specialized tiers.
-              Select granular services, view instant pricing estimates, and generate a verified enterprise contract.
+              Pick the services you need — they collect in your Solution Blueprint. Send it to us and our team will
+              build a plan around your operations.
             </p>
           </div>
 
@@ -287,10 +261,9 @@ export const SolutionBuilder: React.FC<SolutionBuilderProps> = ({
           <div className="hidden lg:block lg:col-span-4 sticky top-24">
             <SummaryPanel
               selectedServices={selectedServicesList}
-              total={totalAmount}
               onRemoveService={handleRemoveService}
               onClearAll={handleClearAll}
-              onPay={handlePay}
+              onSubmit={handleSubmitBlueprint}
             />
           </div>
 
@@ -298,10 +271,9 @@ export const SolutionBuilder: React.FC<SolutionBuilderProps> = ({
           <div className="block lg:hidden w-full">
             <SummaryPanel
               selectedServices={selectedServicesList}
-              total={totalAmount}
               onRemoveService={handleRemoveService}
               onClearAll={handleClearAll}
-              onPay={handlePay}
+              onSubmit={handleSubmitBlueprint}
             />
           </div>
         </div>
@@ -321,6 +293,13 @@ export const SolutionBuilder: React.FC<SolutionBuilderProps> = ({
           onToggleSelect={handleToggleService}
         />
 
+        <BlueprintRequestModal
+          isOpen={requestOpen}
+          onClose={() => setRequestOpen(false)}
+          selectedServices={selectedServicesList}
+          tiers={tiers}
+        />
+
         {/* Mobile Sticky Bottom Bar */}
         <div
           className="fixed bottom-0 left-0 right-0 z-40 p-4 border-t lg:hidden backdrop-blur-md shadow-2xl transition-all"
@@ -333,17 +312,17 @@ export const SolutionBuilder: React.FC<SolutionBuilderProps> = ({
           <div className="max-w-md mx-auto flex items-center justify-between space-x-3">
             <div>
               <span className="text-[10px] font-mono uppercase font-bold" style={{ color: 'var(--mut)' }}>
-                Total ({selectedServicesList.length})
+                Your Blueprint
               </span>
-              <span className="text-lg font-mono font-extrabold block" style={{ color: 'var(--acc)' }}>
-                {currencyFormatter.format(totalAmount)}
+              <span className="text-lg font-extrabold block" style={{ color: 'var(--acc)' }}>
+                {selectedServicesList.length} service{selectedServicesList.length === 1 ? '' : 's'}
               </span>
             </div>
 
             <button
               type="button"
               disabled={selectedServicesList.length === 0}
-              onClick={() => handlePay(selectedServicesList, totalAmount)}
+              onClick={handleSubmitBlueprint}
               className={`py-2.5 px-5 rounded-xl font-bold text-xs tracking-wide transition-all flex items-center space-x-1.5 shadow-md cursor-pointer ${
                 selectedServicesList.length === 0
                   ? 'opacity-40 cursor-not-allowed bg-gray-400 text-white'
@@ -354,7 +333,7 @@ export const SolutionBuilder: React.FC<SolutionBuilderProps> = ({
                 boxShadow: selectedServicesList.length === 0 ? 'none' : 'var(--glow)',
               }}
             >
-              <span>Pay Now</span>
+              <span>Send Blueprint</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>

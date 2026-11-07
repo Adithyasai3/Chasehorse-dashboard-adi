@@ -62,7 +62,7 @@ export const DeployLeadPage: React.FC = () => {
               <p><strong>Operating Zone:</strong> {selectedCity} Hub</p>
               <p><strong>Shift Commitment:</strong> {shiftsCount} shift(s)</p>
               <p className="pt-2 text-[11px] text-[#8C877D] border-t border-[#E2DED5]">
-                A certified ChaseHorse Field Supervisor matching this specification has been notified. You will receive their name, contact, photo ID, and ETA via SMS in 15 minutes.
+                A certified Chasehorse Field Supervisor matching this specification has been notified. You will receive their name, contact, photo ID, and ETA via SMS in 15 minutes.
               </p>
             </div>
 

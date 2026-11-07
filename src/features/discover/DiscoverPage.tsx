@@ -18,24 +18,26 @@ import {
   Clock, 
   CheckCircle2,
   Calendar,
-  Sparkles
+  Sparkles,
+  Network
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { EnquiryModal } from '../../components/ui/EnquiryModal';
+import { IndiaLogisticsNetwork } from './network/IndiaLogisticsNetwork';
 
 export const DiscoverPage: React.FC = () => {
   const location = useLocation();
-  const [activeTab, setActiveTab] = useState<'courses' | 'internships' | 'resources' | 'stories' | 'safety' | 'about'>('courses');
+  const [activeTab, setActiveTab] = useState<'courses' | 'internships' | 'resources' | 'stories' | 'about' | 'network'>('courses');
   const [enquiryOpen, setEnquiryOpen] = useState(false);
   const [enquiryTitle, setEnquiryTitle] = useState('Course Enrollment');
 
   useEffect(() => {
     const path = location.pathname;
-    if (path.includes('courses')) setActiveTab('courses');
+    if (path.includes('network')) setActiveTab('network');
+    else if (path.includes('courses')) setActiveTab('courses');
     else if (path.includes('internships')) setActiveTab('internships');
     else if (path.includes('resources') || path.includes('videos')) setActiveTab('resources');
     else if (path.includes('stories') || path.includes('customers')) setActiveTab('stories');
-    else if (path.includes('safety') || path.includes('insurance')) setActiveTab('safety');
     else if (path.includes('about') || path.includes('benefits') || path.includes('demo') || path.includes('events')) setActiveTab('about');
   }, [location.pathname]);
 
@@ -55,23 +57,22 @@ export const DiscoverPage: React.FC = () => {
               ● KNOWLEDGE & COMMUNITY HUB
             </span>
             <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-              Discover ChaseHorse
+              Discover Chasehorse
             </h1>
             <p className="text-sm sm:text-base text-[#E2DED5]/90 leading-relaxed font-light">
-              Explore professional certifications, operational internships, whitepapers, enterprise case studies, and our workplace safety pledge.
+              Explore professional certifications, whitepapers, enterprise case studies, and careers at Chasehorse.
             </p>
           </div>
         </div>
 
         {/* Section Navigation Tabs */}
-        <div className="flex items-center space-x-2 overflow-x-auto pb-2 border-b border-[#E2DED5]">
+        <div className="flex flex-wrap items-center gap-2 pb-3 border-b border-[#E2DED5]">
           {[
             { id: 'courses', label: 'Courses & Certifications', icon: GraduationCap },
-            { id: 'internships', label: 'Field Internships', icon: Briefcase },
             { id: 'resources', label: 'SOPs & Resources', icon: BookOpen },
             { id: 'stories', label: 'Customer Stories', icon: Sparkles },
-            { id: 'safety', label: 'Safety Standards', icon: ShieldCheck },
-            { id: 'about', label: 'About ChaseHorse', icon: Award },
+            { id: 'about', label: 'About Chasehorse', icon: Award },
+            { id: 'network', label: 'India Logistics Network', icon: Network },
           ].map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -90,7 +91,35 @@ export const DiscoverPage: React.FC = () => {
               </button>
             );
           })}
+
+          {/* Highlighted Careers group: Internships tab + link to open roles */}
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="flex items-center gap-1.5 px-2 text-[11px] font-mono font-bold uppercase tracking-widest text-[#FF4D16] whitespace-nowrap">
+              Careers
+            </span>
+            <button
+              onClick={() => setActiveTab('internships')}
+              className={`flex items-center space-x-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold transition-all whitespace-nowrap ${
+                activeTab === 'internships'
+                  ? 'bg-[#FF4D16] text-white shadow-md'
+                  : 'bg-[#FFF0EB] text-[#FF4D16] border border-[#FF4D16]/30 hover:border-[#FF4D16]'
+              }`}
+            >
+              <Briefcase className="w-4 h-4" />
+              <span>Internships</span>
+            </button>
+            <Link
+              to="/careers/jobs"
+              className="flex items-center space-x-2 px-5 py-3 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap bg-[#FFF0EB] text-[#FF4D16] border border-[#FF4D16]/30 hover:border-[#FF4D16] transition-all"
+            >
+              <span>Open Roles</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
         </div>
+
+        {/* INDIA LOGISTICS NETWORK */}
+        {activeTab === 'network' && <IndiaLogisticsNetwork />}
 
         {/* TAB 1: COURSES */}
         {activeTab === 'courses' && (
@@ -262,43 +291,6 @@ export const DiscoverPage: React.FC = () => {
           </div>
         )}
 
-        {/* TAB 5: SAFETY */}
-        {activeTab === 'safety' && (
-          <div className="bg-white rounded-3xl border border-[#E2DED5] p-8 sm:p-12 space-y-8 shadow-sm">
-            <div className="max-w-3xl space-y-3">
-              <span className="text-xs font-mono uppercase tracking-widest text-[#FF4D16] font-bold">
-                ● ZERO-HARM COMMITMENT
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#171717]">
-                Workplace HSE & Safety Standards
-              </h2>
-              <p className="text-sm text-[#625E58] leading-relaxed">
-                At ChaseHorse, safety is not a poster on the wall — it is our primary operating metric. We enforce zero-tolerance adherence to personal protective equipment, dock traffic safety, and driver health.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
-              <div className="p-5 rounded-2xl bg-[#FAF8F5] border border-[#E2DED5] space-y-2">
-                <ShieldCheck className="w-6 h-6 text-green-600" />
-                <h4 className="font-bold text-sm text-[#171717]">100% Certified PPE</h4>
-                <p className="text-xs text-[#625E58]">Every worker is equipped with EN 397 helmets, S3 steel-toe footwear, and high-visibility vests.</p>
-              </div>
-
-              <div className="p-5 rounded-2xl bg-[#FAF8F5] border border-[#E2DED5] space-y-2">
-                <Award className="w-6 h-6 text-[#FF4D16]" />
-                <h4 className="font-bold text-sm text-[#171717]">Statutory Labor Welfare</h4>
-                <p className="text-xs text-[#625E58]">Strict compliance with PF, ESIC, and statutory working hour limits for all on-field personnel.</p>
-              </div>
-
-              <div className="p-5 rounded-2xl bg-[#FAF8F5] border border-[#E2DED5] space-y-2">
-                <Clock className="w-6 h-6 text-blue-600" />
-                <h4 className="font-bold text-sm text-[#171717]">Driver Fatigue Management</h4>
-                <p className="text-xs text-[#625E58]">Mandatory rest intervals enforced via telematics and dedicated terminal rest lounges.</p>
-              </div>
-            </div>
-          </div>
-        )}
-
         {/* TAB 6: ABOUT CHASEHORSE */}
         {activeTab === 'about' && (
           <div className="bg-white rounded-3xl border border-[#E2DED5] p-8 sm:p-12 space-y-8 shadow-sm">
@@ -310,7 +302,7 @@ export const DiscoverPage: React.FC = () => {
                 Growth Enabling Logiworkx Partner
               </h2>
               <p className="text-sm text-[#625E58] leading-relaxed">
-                Founded to bridge the critical execution gap between digital supply chain software and physical reality on Indian docks and highways, ChaseHorse provides enterprise clients with guaranteed operational reliability.
+                Founded to bridge the critical execution gap between digital supply chain software and physical reality on Indian docks and highways, Chasehorse provides enterprise clients with guaranteed operational reliability.
               </p>
             </div>
 

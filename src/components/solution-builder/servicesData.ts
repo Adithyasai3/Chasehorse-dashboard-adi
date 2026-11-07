@@ -461,7 +461,7 @@ export const services: Service[] = [
     group: 'Customer Xperience Management',
     name: 'CHCX',
     price: 20000,
-    description: 'ChaseHorse customer experience command center monitoring brand delivery satisfaction.' // TODO: review
+    description: 'Chasehorse customer experience command center monitoring brand delivery satisfaction.' // TODO: review
   },
   {
     id: 't2-customized-checklist',

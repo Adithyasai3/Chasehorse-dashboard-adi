@@ -44,7 +44,7 @@ export const INDIA_LOCATIONS: CityLocation[] = [
     coords: { lat: 12.9716, lng: 77.5946 },
     positionPercent: { top: 78.5, left: 39.5 },
     hubType: 'South India Technology & Logistics Center',
-    address: 'ChaseHorse Tech & Ops Tower, Hosur Road Logistics Hub, Bengaluru',
+    address: 'Chasehorse Tech & Ops Tower, Hosur Road Logistics Hub, Bengaluru',
     contact: '+91 (80) 4560-9900',
     activeFieldWorkers: 9800,
     terminalBays: 65,

@@ -12,7 +12,7 @@ export interface WhoWeAreContent {
 export const WHO_WE_ARE_DATA: WhoWeAreContent = {
   eyebrow: 'Who we are',
   heading: 'Who we are',
-  lead: 'CHASEHORSE is a technology-driven logistics and supply chain transformation company delivering innovative solutions across industries globally.',
+  lead: 'Chasehorse is a technology-driven logistics and supply chain transformation company delivering innovative solutions across industries globally.',
   story: {
     prefix:
       'As a growth enabling partner, we orchestrated need-of-the-hour solutions engineered with futuristic capabilities. We pioneer a first-of-its-kind ',

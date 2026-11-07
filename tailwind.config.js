@@ -34,6 +34,8 @@ export default {
         sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
         display: ['Plus Jakarta Sans', 'sans-serif'],
+        hero: ['"Bricolage Grotesque"', 'Plus Jakarta Sans', 'sans-serif'],
+        serif: ['"Instrument Serif"', 'Georgia', 'serif'],
       },
       boxShadow: {
         'subtle': '0 2px 10px rgba(0, 0, 0, 0.03)',

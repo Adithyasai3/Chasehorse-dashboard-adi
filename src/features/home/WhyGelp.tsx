@@ -86,7 +86,7 @@ export const WhyGelp: React.FC<WhyGelpProps> = ({ content = WHY_GELP_DATA }) => 
     <section
       id="why-gelp"
       className="w-full bg-[#f3f0e8] py-12 sm:py-14 lg:py-16 border-b border-[#171717]/10"
-      aria-label="Why ChaseHorse G.E.L.P."
+      aria-label="Why Chasehorse G.E.L.P."
     >
       <div className="max-w-[1180px] mx-auto px-6 space-y-6 sm:space-y-8">
         

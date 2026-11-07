@@ -44,7 +44,7 @@ export const ContactPage: React.FC = () => {
             <span>LET&apos;S CONNECT</span>
           </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold text-[#171717]">
-            Contact ChaseHorse
+            Contact Chasehorse
           </h1>
           <p className="text-sm text-[#625E58] max-w-2xl">
             Get in touch with our enterprise solutions team or connect with our 6 regional metro operational command centers.
@@ -62,7 +62,7 @@ export const ContactPage: React.FC = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-[#171717]">Message Received!</h3>
                 <p className="text-xs text-[#625E58] max-w-md mx-auto">
-                  Thank you for connecting with ChaseHorse. Our enterprise desk in {formData.hub} will get in touch within 2 hours.
+                  Thank you for connecting with Chasehorse. Our enterprise desk in {formData.hub} will get in touch within 2 hours.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
@@ -174,7 +174,7 @@ export const ContactPage: React.FC = () => {
               
               <div className="space-y-3 text-xs">
                 <a
-                  href={getWhatsAppUrl('Hi ChaseHorse, I would like to speak with an operations specialist')}
+                  href={getWhatsAppUrl('Hi Chasehorse, I would like to speak with an operations specialist')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-4 rounded-2xl bg-[#FAF8F5] border border-[#E2DED5] hover:border-[#25D366] transition-colors flex items-center justify-between group"
@@ -191,7 +191,10 @@ export const ContactPage: React.FC = () => {
                   <ArrowRight className="w-4 h-4 text-[#8C877D] group-hover:translate-x-1 group-hover:text-[#25D366] transition-all" />
                 </a>
 
-                <div className="p-4 rounded-2xl bg-[#FAF8F5] border border-[#E2DED5] flex items-center space-x-3">
+                <a
+                  href={`tel:${APP_CONFIG.SUPPORT_PHONE.replace(/[^\d+]/g, '')}`}
+                  className="p-4 rounded-2xl bg-[#FAF8F5] border border-[#E2DED5] hover:border-[#171717] transition-colors flex items-center space-x-3"
+                >
                   <div className="w-10 h-10 rounded-xl bg-[#171717] text-white flex items-center justify-center">
                     <Phone className="w-5 h-5 text-[#FF4D16]" />
                   </div>
@@ -199,17 +202,20 @@ export const ContactPage: React.FC = () => {
                     <span className="font-bold text-[#171717] block">{APP_CONFIG.SUPPORT_PHONE}</span>
                     <span className="text-[11px] text-[#625E58]">Central Operations Hotline</span>
                   </div>
-                </div>
+                </a>
 
-                <div className="p-4 rounded-2xl bg-[#FAF8F5] border border-[#E2DED5] flex items-center space-x-3">
+                <a
+                  href={`mailto:${APP_CONFIG.SUPPORT_EMAIL}`}
+                  className="p-4 rounded-2xl bg-[#FAF8F5] border border-[#E2DED5] hover:border-[#171717] transition-colors flex items-center space-x-3"
+                >
                   <div className="w-10 h-10 rounded-xl bg-[#171717] text-white flex items-center justify-center">
                     <Mail className="w-5 h-5 text-[#FF4D16]" />
                   </div>
-                  <div>
-                    <span className="font-bold text-[#171717] block">{APP_CONFIG.SUPPORT_EMAIL}</span>
+                  <div className="min-w-0">
+                    <span className="font-bold text-[#171717] block break-all">{APP_CONFIG.SUPPORT_EMAIL}</span>
                     <span className="text-[11px] text-[#625E58]">Corporate Inquiry Desk</span>
                   </div>
-                </div>
+                </a>
               </div>
             </div>
 
@@ -218,7 +224,7 @@ export const ContactPage: React.FC = () => {
               <span className="text-[10px] font-mono text-[#FF4D16] uppercase font-bold">
                 HEADQUARTERS COMMAND
               </span>
-              <h4 className="font-bold text-sm text-white">ChaseHorse Technologies Pvt Ltd</h4>
+              <h4 className="font-bold text-sm text-white">Chasehorse Technologies Pvt Ltd</h4>
               <p className="text-[#E2DED5]/80 leading-relaxed">
                 Tech & Ops Tower, Hosur Road Logistics Hub, Bengaluru, Karnataka 560100
               </p>

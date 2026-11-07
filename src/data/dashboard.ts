@@ -22,7 +22,7 @@ export const MOCK_DASHBOARD_DATA = {
     { id: 'INV-2025-101', date: '2025-10-28', dueDate: '2025-11-27', amount: '₹3,45,000', status: 'Under Review', service: 'Freight Optimization & Lane Rationalization' },
   ],
   orders: [
-    { id: 'ORD-7741', date: '2025-10-26', category: 'HSE Merchandise', items: 'ChaseHorse Pro-Guard Helmets (x50), S3 Shoes (x50)', status: 'In Transit', total: '₹1,27,400', trackingNumber: 'CH-TRK-99042' },
+    { id: 'ORD-7741', date: '2025-10-26', category: 'HSE Merchandise', items: 'Chasehorse Pro-Guard Helmets (x50), S3 Shoes (x50)', status: 'In Transit', total: '₹1,27,400', trackingNumber: 'CH-TRK-99042' },
     { id: 'ORD-7689', date: '2025-10-18', category: 'Spot Truck Booking', items: '2x 32ft MX Container (Delhi to Pune)', status: 'Delivered', total: '₹94,000', trackingNumber: 'CH-TRK-98711' },
     { id: 'ORD-7620', date: '2025-10-09', category: 'Terminal Space', items: 'Dedicated Truck Bays (x4) - Mumbai Hub', status: 'Active', total: '₹48,000', trackingNumber: 'CH-TRK-98402' },
   ],
@@ -58,7 +58,7 @@ export const MOCK_DASHBOARD_DATA = {
     ],
   },
   knowledge: [
-    { id: 'KB-01', title: 'ChaseHorse Loading & Lashing Standard Operating Procedure v3.2', category: 'Standard Operating Procedures', size: '2.4 MB PDF' },
+    { id: 'KB-01', title: 'Chasehorse Loading & Lashing Standard Operating Procedure v3.2', category: 'Standard Operating Procedures', size: '2.4 MB PDF' },
     { id: 'KB-02', title: 'Emergency Road Incident & Highway Breakdown Protocol', category: 'Incident Management', size: '1.8 MB PDF' },
     { id: 'KB-03', title: 'GST Checkpoint Verification & E-Way Bill Handbook 2025', category: 'Tax & Compliance', size: '3.1 MB PDF' },
     { id: 'KB-04', title: 'Statutory Labor & Contractor PF/ESIC Compliance Audit Guide', category: 'Labor Welfare', size: '1.2 MB PDF' },

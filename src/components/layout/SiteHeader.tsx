@@ -1,306 +1,261 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { MAIN_NAVIGATION, MainNavItem } from '../../data/navigation';
-import { MegaMenu } from '../navigation/MegaMenu';
+import { MAIN_NAVIGATION, SubNavItem, NavSection } from '../../data/navigation';
 import { ChaseHorseLogo } from '../ui/ChaseHorseLogo';
 import { useCart } from '../../hooks/useCart';
-import { 
-  Search, 
-  ShoppingBag, 
-  Menu, 
-  X, 
-  ChevronDown, 
-  ArrowRight,
-  ExternalLink,
-  ShieldCheck,
-  UserCheck
-} from 'lucide-react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { Search, ShoppingBag, Menu, X, ChevronDown } from 'lucide-react';
+
+// Navbar items shown in the header, in order
+const NAV_IDS = ['platform', 'solutions', 'live-market', 'discover', 'hse-shop', 'partners'];
+const NAV_ITEMS = MAIN_NAVIGATION.filter((item) => NAV_IDS.includes(item.id));
+
+/** Column heading in the accent colour. */
+const SectionTitle: React.FC<{ section: NavSection; className: string }> = ({ section, className }) => (
+  <div className={`${className} flex items-center gap-2 !text-[#FF4D16] font-semibold`}>
+    <span>{section.title}</span>
+  </div>
+);
+
+const isExternal = (link: SubNavItem) => link.external || link.path.startsWith('http');
+
+/** A single dropdown link — internal routes use the router, external ones open in a new tab. */
+const NavLink: React.FC<{ link: SubNavItem; onNavigate: () => void; className: string }> = ({ link, onNavigate, className }) =>
+  isExternal(link) ? (
+    <a href={link.path} target="_blank" rel="noopener noreferrer" onClick={onNavigate} className={className}>
+      {link.title}
+    </a>
+  ) : (
+    <Link to={link.path} onClick={onNavigate} className={className}>
+      {link.title}
+    </Link>
+  );
 
 export const SiteHeader: React.FC<{ onOpenSearch?: () => void }> = ({ onOpenSearch }) => {
-  const [activeMenuId, setActiveMenuId] = useState<string | null>(null);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [openId, setOpenId] = useState<string | null>(null);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileExpanded, setMobileExpanded] = useState<string | null>(null);
+  const headerRef = useRef<HTMLElement>(null);
   const location = useLocation();
   const { itemCount, setIsCartOpen } = useCart();
-  const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Close mega menu on route change
+  const closeAll = () => {
+    setOpenId(null);
+    setMobileOpen(false);
+    setMobileExpanded(null);
+  };
+
+  // Close on route change
   useEffect(() => {
-    setActiveMenuId(null);
-    setMobileMenuOpen(false);
-  }, [location.pathname]);
+    closeAll();
+  }, [location.pathname, location.search, location.hash]);
 
-  const handleMouseEnter = (itemId: string) => {
-    if (closeTimeoutRef.current) {
-      clearTimeout(closeTimeoutRef.current);
-      closeTimeoutRef.current = null;
-    }
-    setActiveMenuId(itemId);
-  };
+  // Close on outside click and on Escape
+  useEffect(() => {
+    if (!openId && !mobileOpen) return;
+    const onPointerDown = (e: MouseEvent) => {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) closeAll();
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeAll();
+    };
+    document.addEventListener('mousedown', onPointerDown);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('mousedown', onPointerDown);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [openId, mobileOpen]);
 
-  const handleMouseLeave = () => {
-    closeTimeoutRef.current = setTimeout(() => {
-      setActiveMenuId(null);
-    }, 220);
-  };
-
-  const activeItem = MAIN_NAVIGATION.find((item) => item.id === activeMenuId);
+  const openItem = NAV_ITEMS.find((item) => item.id === openId);
+  const sections = openItem?.megaMenu?.sections ?? [];
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#F4F1EA]/95 backdrop-blur-md border-b border-[#E2DED5] transition-all">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3 shrink-0 py-2 group">
-            <div className="h-10 md:h-12 flex items-center">
-              <ChaseHorseLogo
-                variant="dark"
-                showTagline={false}
-                className="w-48 sm:w-56 h-auto"
-              />
-            </div>
-          </Link>
-
-          {/* Desktop Navigation with Generous Spacing (~32-40px) */}
-          <nav
-            className="hidden lg:flex items-center space-x-6 xl:space-x-8"
-            onMouseLeave={handleMouseLeave}
-          >
-            {MAIN_NAVIGATION.filter((item) =>
-              ['platform', 'solutions', 'live-market', 'discover', 'hse-shop', 'careers'].includes(item.id)
-            ).map((item) => {
-              const isActive = location.pathname.startsWith(item.path) && item.path !== '/' || (location.pathname === '/' && item.path === '/');
-              const isHovered = activeMenuId === item.id;
-
-              return (
-                <div
-                  key={item.id}
-                  className="relative"
-                  onMouseEnter={() => handleMouseEnter(item.id)}
-                >
-                  <button
-                    onClick={() => {
-                      if (activeMenuId === item.id) {
-                        setActiveMenuId(null);
-                      } else {
-                        setActiveMenuId(item.id);
-                      }
-                    }}
-                    className={`inline-flex items-center space-x-1 px-3 py-2 text-sm font-semibold rounded-lg transition-all ${
-                      isHovered || isActive
-                        ? 'text-[#FF4D16] bg-white/70 shadow-sm'
-                        : 'text-[#171717] hover:text-[#FF4D16] hover:bg-white/40'
-                    }`}
-                  >
-                    <span>{item.label}</span>
-                    {item.hasMegaMenu && (
-                      <ChevronDown
-                        className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                          isHovered ? 'rotate-180 text-[#FF4D16]' : 'text-[#625E58]'
-                        }`}
-                      />
-                    )}
-                  </button>
-                </div>
-              );
-            })}
-          </nav>
-
-          {/* Right Action Icons & Login */}
-          <div className="flex items-center space-x-2 sm:space-x-3">
-            {/* Search Button */}
-            <button
-              onClick={onOpenSearch}
-              className="p-2.5 rounded-lg text-[#171717] hover:bg-white hover:text-[#FF4D16] transition-colors border border-transparent hover:border-[#E2DED5]"
-              title="Search Services & Products (Ctrl+K)"
-              aria-label="Search"
-            >
-              <Search className="w-4 h-4" />
-            </button>
-
-            {/* HSE Shop Cart Trigger */}
-            <button
-              onClick={() => setIsCartOpen(true)}
-              className="relative p-2.5 rounded-lg text-[#171717] hover:bg-white hover:text-[#FF4D16] transition-colors border border-transparent hover:border-[#E2DED5]"
-              title="View Cart"
-              aria-label="View Cart"
-            >
-              <ShoppingBag className="w-4 h-4" />
-              {itemCount > 0 && (
-                <span className="absolute -top-1 -right-1 flex items-center justify-center min-w-5 h-5 px-1 text-[11px] font-bold text-white bg-[#FF4D16] rounded-full shadow-sm animate-pulse">
-                  {itemCount}
-                </span>
-              )}
-            </button>
-
-            {/* Login Button (Rightmost, after Partners - Opens in new tab per specification) */}
-            <Link
-              to="/login"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center space-x-2 px-4 py-2 text-sm font-semibold rounded-lg bg-[#171717] text-white hover:bg-[#FF4D16] transition-all shadow-sm"
-              title="Open Client & Partner Portal in new tab"
-            >
-              <UserCheck className="w-4 h-4" />
-              <span>Login</span>
+    <header ref={headerRef} className="sticky top-0 z-40 w-full bg-white">
+      <div className="relative z-20 bg-white">
+        <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-12">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+            <Link to="/" className="shrink-0" aria-label="Chasehorse home">
+              <ChaseHorseLogo variant="dark" showTagline={false} className="w-36 sm:w-40 h-auto" />
             </Link>
 
-            {/* Mobile menu hamburger toggle */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2.5 rounded-lg text-[#171717] hover:bg-white transition-colors border border-[#E2DED5]"
-              aria-label="Toggle navigation menu"
-            >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
-          </div>
+            {/* Desktop navigation — centred, click to open */}
+            <nav className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-1" aria-label="Main">
+              {NAV_ITEMS.map((item) => {
+                const isOpen = openId === item.id;
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    aria-expanded={isOpen}
+                    aria-controls="site-nav-dropdown"
+                    onClick={() => setOpenId(isOpen ? null : item.id)}
+                    className={`px-4 py-1.5 rounded text-sm font-semibold text-[#171A20] transition-colors ${
+                      isOpen ? 'bg-[#F4F4F4]' : 'hover:bg-[#F4F4F4]'
+                    }`}
+                  >
+                    {item.label}
+                  </button>
+                );
+              })}
+            </nav>
 
+            {/* Right actions */}
+            <div className="flex items-center gap-1">
+              <button
+                type="button"
+                onClick={onOpenSearch}
+                className="p-2 rounded text-[#171A20] hover:bg-[#F4F4F4] transition-colors"
+                title="Search (Ctrl+K)"
+                aria-label="Search"
+              >
+                <Search className="w-5 h-5" strokeWidth={1.75} />
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setIsCartOpen(true)}
+                className="relative p-2 rounded text-[#171A20] hover:bg-[#F4F4F4] transition-colors"
+                title="View Cart"
+                aria-label="View Cart"
+              >
+                <ShoppingBag className="w-5 h-5" strokeWidth={1.75} />
+                {itemCount > 0 && (
+                  <span className="absolute top-0.5 right-0.5 flex items-center justify-center min-w-4 h-4 px-1 text-[10px] font-bold text-white bg-[#FF4D16] rounded-full">
+                    {itemCount}
+                  </span>
+                )}
+              </button>
+
+              {/* Login — opens the portal in a new tab (existing behaviour) */}
+              <Link
+                to="/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden sm:inline-flex px-4 py-1.5 rounded text-sm font-semibold text-[#171A20] hover:bg-[#F4F4F4] transition-colors"
+                title="Open Client & Partner Portal in new tab"
+              >
+                Login
+              </Link>
+
+              {/* Mobile / tablet menu toggle */}
+              <button
+                type="button"
+                onClick={() => {
+                  setMobileOpen(!mobileOpen);
+                  setMobileExpanded(null);
+                }}
+                className="lg:hidden ml-1 px-3 py-1.5 rounded text-sm font-medium text-[#171A20] bg-[#F4F4F4] hover:bg-[#EAEAEA] transition-colors inline-flex items-center gap-1.5"
+                aria-expanded={mobileOpen}
+                aria-label="Toggle navigation menu"
+              >
+                {mobileOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+                <span>Menu</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
 
-      {/* Desktop Mega Menu Dropdown */}
-      <div onMouseEnter={() => {
-        if (closeTimeoutRef.current) {
-          clearTimeout(closeTimeoutRef.current);
-          closeTimeoutRef.current = null;
-        }
-      }} onMouseLeave={handleMouseLeave}>
-        <AnimatePresence>
-          {activeItem && activeItem.megaMenu && (
-            <MegaMenu
-              data={activeItem.megaMenu}
-              onClose={() => setActiveMenuId(null)}
-            />
-          )}
-        </AnimatePresence>
-      </div>
-
-      {/* Mobile Drawer Menu */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden border-t border-[#E2DED5] bg-white max-h-[calc(100vh-5rem)] overflow-y-auto px-4 py-6 shadow-xl"
+      {/* ================= DESKTOP DROPDOWN ================= */}
+      {openItem && (
+        <>
+          <div
+            id="site-nav-dropdown"
+            className="hidden lg:block absolute z-20 left-0 right-0 top-full bg-white"
           >
-            <div className="space-y-3">
-              {MAIN_NAVIGATION.map((item) => {
-                const isExpanded = mobileExpanded === item.id;
-
-                return (
-                  <div key={item.id} className="border-b border-[#E2DED5]/60 pb-2">
-                    <div className="flex items-center justify-between py-2">
-                      <Link
-                        to={item.path}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="text-base font-bold text-[#171717] hover:text-[#FF4D16]"
-                      >
-                        {item.label}
-                      </Link>
-                      {item.hasMegaMenu && (
-                        <button
-                          onClick={() => setMobileExpanded(isExpanded ? null : item.id)}
-                          className="p-2 text-[#625E58] hover:text-[#FF4D16]"
-                          aria-label={`Toggle ${item.label} submenu`}
-                        >
-                          <ChevronDown
-                            className={`w-5 h-5 transition-transform ${isExpanded ? 'rotate-180 text-[#FF4D16]' : ''}`}
+            <div className="mx-auto max-w-5xl px-12 pt-5 pb-7">
+              <div className="flex justify-center gap-x-20 xl:gap-x-24">
+                {sections.map((section) => (
+                  <div key={section.title} className="min-w-[180px]">
+                    <SectionTitle section={section} className="text-[13px] text-[#5C5E62] mb-2.5" />
+                    <ul className="space-y-2">
+                      {section.items.map((link) => (
+                        <li key={link.path + link.title}>
+                          <NavLink
+                            link={link}
+                            onNavigate={closeAll}
+                            className="text-sm font-semibold text-[#171A20] hover:underline underline-offset-4"
                           />
-                        </button>
-                      )}
-                    </div>
-
-                    {/* Submenu Accordion */}
-                    {item.hasMegaMenu && isExpanded && item.megaMenu && (
-                      <div className="pl-3 pr-1 py-2 space-y-4 bg-[#F4F1EA]/60 rounded-xl my-2">
-                        {item.megaMenu.sections.map((sec, sIdx) => (
-                          <div key={sIdx} className="space-y-2">
-                            <span className="text-xs font-bold uppercase tracking-wider text-[#FF4D16]">
-                              {sec.title}
-                            </span>
-                            <div className="space-y-1.5">
-                              {sec.items.map((sub, subIdx) => {
-                                const isExternal = sub.external || sub.path.startsWith('http');
-                                return isExternal ? (
-                                  <a
-                                    key={subIdx}
-                                    href={sub.path}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="flex items-center justify-between py-1.5 text-sm text-[#171717] hover:text-[#FF4D16]"
-                                  >
-                                    <span>{sub.title}</span>
-                                    <ExternalLink className="w-3.5 h-3.5 text-[#8C877D]" />
-                                  </a>
-                                ) : (
-                                  <Link
-                                    key={subIdx}
-                                    to={sub.path}
-                                    onClick={() => setMobileMenuOpen(false)}
-                                    className="flex items-center justify-between py-1.5 text-sm text-[#171717] hover:text-[#FF4D16]"
-                                  >
-                                    <span>{sub.title}</span>
-                                    {sub.badge && (
-                                      <span className="text-[10px] px-1.5 py-0.5 bg-[#FFF0EB] text-[#FF4D16] rounded font-semibold">
-                                        {sub.badge}
-                                      </span>
-                                    )}
-                                  </Link>
-                                );
-                              })}
-                            </div>
-                          </div>
-                        ))}
-
-                        {item.megaMenu.featuredCtaPath && (
-                          <Link
-                            to={item.megaMenu.featuredCtaPath}
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="flex items-center justify-between p-3 bg-[#FF4D16] text-white rounded-lg text-sm font-semibold"
-                          >
-                            <span>{item.megaMenu.featuredCtaText}</span>
-                            <ArrowRight className="w-4 h-4" />
-                          </Link>
-                        )}
-                      </div>
-                    )}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                );
-              })}
-
-              {/* Mobile Login action button */}
-              <div className="pt-4">
-                <Link
-                  to="/login"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="w-full flex items-center justify-center space-x-2 py-3 bg-[#171717] text-white rounded-xl font-bold text-center hover:bg-[#FF4D16] transition-colors"
-                >
-                  <UserCheck className="w-4 h-4" />
-                  <span>Client & Partner Login</span>
-                </Link>
+                ))}
               </div>
-
-              {/* Partner Google Form Shortcut */}
-              <div className="pt-2">
-                <a
-                  href="https://forms.gle/QmiddiuRkaRLbesEA"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full flex items-center justify-center space-x-2 py-2.5 border border-[#E2DED5] text-[#171717] rounded-xl text-xs font-semibold text-center hover:border-[#171717]"
-                >
-                  <ShieldCheck className="w-4 h-4 text-[#FF4D16]" />
-                  <span>Submit Partner Application Form →</span>
-                </a>
-              </div>
-
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+
+          {/* Page dimmer — clicking it closes the dropdown */}
+          <div
+            aria-hidden
+            onClick={closeAll}
+            className="hidden lg:block fixed inset-0 top-16 z-10 bg-black/10 backdrop-blur-[2px]"
+          />
+        </>
+      )}
+
+      {/* ================= MOBILE / TABLET MENU ================= */}
+      {mobileOpen && (
+        <div className="lg:hidden absolute z-20 left-0 right-0 top-full bg-white border-t border-[#EEEEEE] max-h-[calc(100vh-4rem)] overflow-y-auto">
+          <ul className="px-4 sm:px-6 py-3">
+            {NAV_ITEMS.map((item) => {
+              const expanded = mobileExpanded === item.id;
+              return (
+                <li key={item.id}>
+                  <button
+                    type="button"
+                    aria-expanded={expanded}
+                    onClick={() => setMobileExpanded(expanded ? null : item.id)}
+                    className={`w-full flex items-center justify-between px-3 py-3 rounded text-[15px] font-medium text-[#171A20] ${
+                      expanded ? 'bg-[#F4F4F4]' : 'hover:bg-[#F4F4F4]'
+                    }`}
+                  >
+                    <span>{item.label}</span>
+                    <ChevronDown className={`w-4 h-4 text-[#5C5E62] ${expanded ? 'rotate-180' : ''}`} />
+                  </button>
+
+                  {expanded && (
+                    <div className="px-3 pt-2 pb-4 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-4">
+                      {item.megaMenu?.sections.map((section) => (
+                        <div key={section.title}>
+                          <SectionTitle section={section} className="text-[13px] text-[#5C5E62] mb-2" />
+                          <ul className="space-y-2">
+                            {section.items.map((link) => (
+                              <li key={link.path + link.title}>
+                                <NavLink
+                                  link={link}
+                                  onNavigate={closeAll}
+                                  className="text-sm font-semibold text-[#171A20] hover:underline underline-offset-4"
+                                />
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </li>
+              );
+            })}
+
+            <li className="sm:hidden">
+              <Link
+                to="/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={closeAll}
+                className="block px-3 py-3 rounded text-[15px] font-medium text-[#171A20] hover:bg-[#F4F4F4]"
+              >
+                Login
+              </Link>
+            </li>
+          </ul>
+        </div>
+      )}
+      {mobileOpen && (
+        <div aria-hidden onClick={closeAll} className="lg:hidden fixed inset-0 top-16 z-10 bg-black/10 backdrop-blur-[2px]" />
+      )}
     </header>
   );
 };

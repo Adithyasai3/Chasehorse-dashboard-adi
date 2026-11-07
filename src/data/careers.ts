@@ -101,7 +101,7 @@ export const JOB_OPENINGS: JobOpening[] = [
     type: 'Full-time',
     experience: '4–8 years',
     salaryRange: '₹7.5L – ₹11.0L PA',
-    description: 'Drive zero-accident culture across ChaseHorse operations in Western India. Lead on-site safety audits, manage warehouse PPE compliance, conduct fire safety drills, and verify statutory labor laws.',
+    description: 'Drive zero-accident culture across Chasehorse operations in Western India. Lead on-site safety audits, manage warehouse PPE compliance, conduct fire safety drills, and verify statutory labor laws.',
     responsibilities: [
       'Conduct regular hazard identification and risk assessments (HIRA) across docks',
       'Audit contractor compliance with Factories Act, BOCW, and PF/ESIC regulations',

@@ -188,7 +188,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({ isOpen, onClose }) => 
           {/* Footer Help */}
           <div className="px-4 py-3 bg-[#FAF8F5] border-t border-[#E2DED5] flex items-center justify-between text-[11px] text-[#8C877D]">
             <span>Press <kbd className="px-1.5 py-0.5 bg-white border border-[#E2DED5] rounded font-mono text-[10px]">ESC</kbd> to close</span>
-            <span>ChaseHorse Logiworkx Directory</span>
+            <span>Chasehorse Logiworkx Directory</span>
           </div>
         </motion.div>
       </div>

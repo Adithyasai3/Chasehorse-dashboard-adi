@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { SERVICE_TIERS, ALL_SERVICES } from '../../data/services';
 import { ArrowRight, ChevronRight, CheckCircle2, Factory, Car, ShoppingCart, Pill, ShieldAlert, Cpu } from 'lucide-react';
 
-const SECTORS_AND_INDUSTRIES = [
+export const SECTORS_AND_INDUSTRIES = [
   {
     icon: Car,
     title: 'Automotive & Heavy Engineering',
@@ -143,7 +143,7 @@ export const SolutionsPage: React.FC = () => {
               Sectors & Industries We Serve
             </h2>
             <p className="text-sm text-[#625E58] max-w-2xl">
-              Every vertical faces distinct operational challenges. ChaseHorse crafts customized SOPs and staffing for specific cargo profiles.
+              Every vertical faces distinct operational challenges. Chasehorse crafts customized SOPs and staffing for specific cargo profiles.
             </p>
           </div>
 
@@ -176,7 +176,7 @@ export const SolutionsPage: React.FC = () => {
               ● NATIONWIDE COHESION
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#171717]">
-              The ChaseHorse Partner Ecosystem
+              The Chasehorse Partner Ecosystem
             </h2>
             <p className="text-xs sm:text-sm text-[#625E58]">
               Connecting shippers, transporters, terminal yard owners, and financial institutions into a single network with verified SLAs.

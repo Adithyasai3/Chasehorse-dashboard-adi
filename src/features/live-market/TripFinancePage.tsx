@@ -170,7 +170,7 @@ export const TripFinancePage: React.FC = () => {
             {/* Benefits & How It Works (5 cols) */}
             <div className="lg:col-span-5 space-y-4">
               <div className="bg-white rounded-3xl border border-[#E2DED5] p-6 space-y-4 shadow-sm">
-                <h3 className="font-bold text-base text-[#171717]">Why Transporters Choose ChaseHorse</h3>
+                <h3 className="font-bold text-base text-[#171717]">Why Transporters Choose Chasehorse</h3>
                 <ul className="space-y-3 text-xs text-[#625E58]">
                   <li className="flex items-start space-x-2">
                     <CheckCircle2 className="w-4 h-4 text-[#FF4D16] shrink-0 mt-0.5" />

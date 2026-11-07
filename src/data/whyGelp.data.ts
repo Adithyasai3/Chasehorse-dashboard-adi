@@ -27,7 +27,7 @@ export interface WhyGelpContent {
 }
 
 export const WHY_GELP_DATA: WhyGelpContent = {
-  heading: 'Why ChaseHorse G.E.L.P.?',
+  heading: 'Why Chasehorse G.E.L.P.?',
   taglineChips: [
     'Value creation',
     'Futuristic',

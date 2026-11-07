@@ -68,7 +68,7 @@ export const INDIA_HUBS: MapHubData[] = [
     name: "Bengaluru",
     state: "Karnataka",
     role: "National HQ & Technology Operations Center",
-    address: "ChaseHorse Tech Tower, Outer Ring Road, Bellandur, Bengaluru 560103",
+    address: "Chasehorse Tech Tower, Outer Ring Road, Bellandur, Bengaluru 560103",
     phone: "+91 (80) 4560-9900",
     activeWorkers: 18500,
     terminalBays: 52,

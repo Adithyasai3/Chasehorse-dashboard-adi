@@ -1,5 +1,5 @@
 /**
- * ChaseHorse API & Service Abstraction Layer
+ * Chasehorse API & Service Abstraction Layer
  *
  * Current Phase: Frontend-first typed mock implementations with simulated latency.
  * Future Phase: Swap with real Spring Boot REST API calls and Supabase client SDK.

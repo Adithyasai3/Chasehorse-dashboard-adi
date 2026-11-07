@@ -15,7 +15,6 @@ export interface ServiceItem {
   category: string;
   shortDesc: string;
   fullDesc: string;
-  image: string;
   targetAudience: string[];
   problemsSolved: string[];
   features: string[];

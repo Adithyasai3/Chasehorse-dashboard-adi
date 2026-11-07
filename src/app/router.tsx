@@ -4,8 +4,10 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 // Features
 import { HomePage } from '../features/home/HomePage';
 import { PlatformPage } from '../features/platform/PlatformPage';
+import { PlatformTopicPage } from '../features/platform/PlatformTopicPage';
 import { SolutionsPage } from '../features/solutions/SolutionsPage';
 import { TierDetailPage } from '../features/solutions/TierDetailPage';
+import { SolutionsTopicPage } from '../features/solutions/SolutionsTopicPage';
 import { ServiceDetailPage } from '../features/services/ServiceDetailPage';
 import { DesignSolutionPage } from '../features/design-solution/DesignSolutionPage';
 import { LiveMarketOverviewPage } from '../features/live-market/LiveMarketOverviewPage';
@@ -19,7 +21,11 @@ import { LocationsPage } from '../features/discover/LocationsPage';
 import { HseShopPage } from '../features/hse-shop/HseShopPage';
 import { ProductDetailPage } from '../features/hse-shop/ProductDetailPage';
 import { PartnersPage } from '../features/partners/PartnersPage';
+import { PartnersTopicPage } from '../features/partners/PartnersTopicPage';
 import { CareersPage } from '../features/careers/CareersPage';
+import { CareersTopicPage } from '../features/careers/CareersTopicPage';
+import { OnsiteStorePage } from '../features/hse-shop/OnsiteStorePage';
+import { RequestCallbackPage } from '../features/hse-shop/RequestCallbackPage';
 import { LoginPage } from '../features/auth/LoginPage';
 import { ClientDashboardPage } from '../features/dashboard/ClientDashboardPage';
 import { ContactPage } from '../features/home/ContactPage';
@@ -27,18 +33,19 @@ import { NotFoundPage } from '../features/home/NotFoundPage';
 
 // Scroll to top on route change
 export const ScrollToTop: React.FC = () => {
-  const { pathname, hash } = useLocation();
+  const { pathname, search, hash } = useLocation();
 
   useEffect(() => {
     if (hash) {
       const element = document.getElementById(hash.replace('#', ''));
       if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({ behavior: 'instant' as ScrollBehavior });
         return;
       }
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [pathname, hash]);
+    // Jump straight to the top of the new page — no sliding scroll animation
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+  }, [pathname, search, hash]);
 
   return null;
 };
@@ -53,9 +60,13 @@ export const AppRoutes: React.FC = () => {
 
         {/* Platform (GELP) */}
         <Route path="/platform" element={<PlatformPage />} />
+        <Route path="/platform/:topicSlug" element={<PlatformTopicPage />} />
 
         {/* Solutions & Tiers */}
         <Route path="/solutions" element={<SolutionsPage />} />
+        <Route path="/solutions/sectors" element={<SolutionsTopicPage topic="sectors" />} />
+        <Route path="/solutions/industries" element={<SolutionsTopicPage topic="industries" />} />
+        <Route path="/solutions/ecosystem" element={<SolutionsTopicPage topic="ecosystem" />} />
         <Route path="/solutions/:tierId" element={<TierDetailPage />} />
 
         {/* Dedicated Individual Service Detail Pages & Sub-services */}
@@ -86,12 +97,21 @@ export const AppRoutes: React.FC = () => {
         <Route path="/hse-shop/checkout" element={<HseShopPage />} />
         <Route path="/hse-shop/order-confirmation" element={<HseShopPage />} />
         <Route path="/hse-shop/track-order" element={<HseShopPage />} />
-        <Route path="/hse-shop/request-onsite-store" element={<HseShopPage />} />
+        <Route path="/hse-shop/request-onsite-store" element={<OnsiteStorePage />} />
+        <Route path="/hse-shop/request-callback" element={<RequestCallbackPage />} />
         <Route path="/hse-shop/offline-stores" element={<LocationsPage />} />
 
         {/* Partners & Careers */}
         <Route path="/partners" element={<PartnersPage />} />
+        <Route path="/partners/on-field" element={<PartnersTopicPage topic="on-field" />} />
+        <Route path="/partners/transportation" element={<PartnersTopicPage topic="transportation" />} />
+        <Route path="/partners/terminal-space" element={<PartnersTopicPage topic="terminal-space" />} />
         <Route path="/careers" element={<CareersPage />} />
+        <Route path="/careers/jobs" element={<CareersTopicPage topic="jobs" />} />
+        <Route path="/careers/on-field" element={<CareersTopicPage topic="on-field" />} />
+        <Route path="/careers/transportation" element={<CareersTopicPage topic="transportation" />} />
+        <Route path="/careers/culture" element={<CareersTopicPage topic="culture" />} />
+        <Route path="/careers/graduates" element={<CareersTopicPage topic="graduates" />} />
         <Route path="/careers/:jobSlug" element={<CareersPage />} />
 
         {/* Auth & Client Dashboard */}

@@ -13,7 +13,7 @@ export const WhoWeAre: React.FC<WhoWeAreProps> = ({ content = WHO_WE_ARE_DATA })
     <section 
       id="who-we-are"
       className="w-full bg-[#f3f0e8] py-16 sm:py-20 lg:py-24 border-b border-[#171717]/10"
-      aria-label="About ChaseHorse"
+      aria-label="About Chasehorse"
     >
       <div className="max-w-[1180px] mx-auto px-6 space-y-12 sm:space-y-16">
         

@@ -78,7 +78,7 @@ export const LiveMarketOverviewPage: React.FC = () => {
             </p>
 
             <div className="pt-2 text-xs text-[#E2DED5]/60">
-              * Active demo environment synchronized with ChaseHorse 6-city zonal dispatch hubs.
+              * Active demo environment synchronized with Chasehorse 6-city zonal dispatch hubs.
             </div>
           </div>
         </div>

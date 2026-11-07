@@ -12,7 +12,6 @@ export interface ServiceCategoryItem {
   category: string;
   indexInTier: string;
   shortDesc: string;
-  image: string;
   modules: string[];
 }
 
@@ -42,7 +41,6 @@ export const TIER_GROUPS: TierGroup[] = [
         category: 'Digital Systems',
         indexInTier: '01',
         shortDesc: 'End-to-end digitisation of freight contracts, RFQ approvals, inward visibility, and management information systems.',
-        image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80',
         modules: [
           'Transport Management System (TMS)',
           'Online Procurement',
@@ -60,7 +58,6 @@ export const TIER_GROUPS: TierGroup[] = [
         category: 'Field Operations',
         indexInTier: '02',
         shortDesc: 'Vetted on-ground logistics professionals deployed at warehouses, loading/unloading sites, and 3PL hubs.',
-        image: 'https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=800&q=80',
         modules: [
           'Warehouse Inspection',
           'Unloading Site Monitoring',
@@ -78,7 +75,6 @@ export const TIER_GROUPS: TierGroup[] = [
         category: 'Quality Engineering',
         indexInTier: '03',
         shortDesc: 'Disciplined root-cause analysis, stakeholder alignment, time-based resolution, and E-way bill reconciliation.',
-        image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80',
         modules: [
           'E-way Bill Management',
           'Stakeholder Collaboration',
@@ -97,7 +93,6 @@ export const TIER_GROUPS: TierGroup[] = [
         category: 'Safety & Merchandise',
         indexInTier: '04',
         shortDesc: 'Certified safety gear, high-visibility apparel, steel-toe boots, and turnkey on-site managed stores.',
-        image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80',
         modules: [
           'Turnkey PPE Safety Kits',
           'Industrial Helmets & Visors',
@@ -115,7 +110,6 @@ export const TIER_GROUPS: TierGroup[] = [
         category: 'Reverse Logistics',
         indexInTier: '05',
         shortDesc: 'Reverse supply chain management, return consignment verification, salvage grading, and restocking.',
-        image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80',
         modules: [
           'Reverse Cargo Inspection',
           'SKU Grading & Restocking',
@@ -142,7 +136,6 @@ export const TIER_GROUPS: TierGroup[] = [
         category: 'AI & Automations',
         indexInTier: '01',
         shortDesc: 'Advanced TMS orchestration, predictive machine-learning lane models, automated tender execution, and tech upskilling.',
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
         modules: [
           'TMS Advanced Architecture',
           'Data Science & Predictive ML',
@@ -160,7 +153,6 @@ export const TIER_GROUPS: TierGroup[] = [
         category: 'Freight Analytics',
         indexInTier: '02',
         shortDesc: 'Algorithmic route rationalization, freight invoice audits, multi-vendor carrier benchmarking, and load density modeling.',
-        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
         modules: [
           'Dynamic Freight Optimization',
           'Routes & Arterial Lanes Rationalization',
@@ -178,7 +170,6 @@ export const TIER_GROUPS: TierGroup[] = [
         category: 'Specialized Engineering',
         indexInTier: '03',
         shortDesc: 'Continuous daily improvement engineering, technical field managers, on-site incident command, and Kaizen.',
-        image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80',
         modules: [
           'Senior Technical On-field Leads',
           'Rapid On-field Incident Support',
@@ -196,7 +187,6 @@ export const TIER_GROUPS: TierGroup[] = [
         category: 'Driver Operations',
         indexInTier: '04',
         shortDesc: 'Driver telematics, in-cab safety diagnostics, professional welfare amenities, and fleet preventive maintenance.',
-        image: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80',
         modules: [
           'Truck Telematics & Speed Limiting',
           'Driver Welfare Rest Points & Kits',
@@ -214,7 +204,6 @@ export const TIER_GROUPS: TierGroup[] = [
         category: 'Green Logistics',
         indexInTier: '05',
         shortDesc: 'Freight carbon footprint telemetry, green route deployment, EV fleet integration, and statutory sustainability audits.',
-        image: 'https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=800&q=80',
         modules: [
           'Scope 1-3 Carbon Footprint Audits',
           'Green Highway Corridors',
@@ -232,7 +221,6 @@ export const TIER_GROUPS: TierGroup[] = [
         category: 'SLA & Retention',
         indexInTier: '06',
         shortDesc: 'Real-time delivery milestone communication, proactive exception handling, and enterprise SLA management.',
-        image: 'https://images.unsplash.com/photo-1534536281715-e28d76689b4d?auto=format&fit=crop&w=800&q=80',
         modules: [
           'Real-time Milestone Alerts (SMS/WhatsApp)',
           'Proactive Exception Resolution',
@@ -259,7 +247,6 @@ export const TIER_GROUPS: TierGroup[] = [
         category: 'Emerging Tech',
         indexInTier: '01',
         shortDesc: 'Autonomous logistics agents, aerial drone yard surveys, IoT environmental sensors, and neural network routing.',
-        image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80',
         modules: [
           'Autonomous AI Agent Dispatch',
           'Drone-Assisted Yard Surveys',
@@ -277,7 +264,6 @@ export const TIER_GROUPS: TierGroup[] = [
         category: 'Heavy Material Handling',
         indexInTier: '02',
         shortDesc: 'Specialized cargo lashing, heavy palletization, computer-aided warehouse management systems, and robotics.',
-        image: 'https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=800&q=80',
         modules: [
           'Heavy Industrial Cargo Lashing',
           'Standardized Euro-Pallet Movement',
@@ -295,7 +281,6 @@ export const TIER_GROUPS: TierGroup[] = [
         category: 'Dedicated Fleet',
         indexInTier: '03',
         shortDesc: 'Dedicated prime-mover truck placement, 24/7 incident command, specialized express delivery, and cross-docking.',
-        image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=800&q=80',
         modules: [
           'Dedicated Fleet Deployment',
           '24/7 Incident Emergency Operations',
@@ -313,7 +298,6 @@ export const TIER_GROUPS: TierGroup[] = [
         category: 'Supply Chain Advisory',
         indexInTier: '04',
         shortDesc: 'Supply chain workflow re-engineering, pan-India lane cost reports, strategic vendor sourcing, and procurement.',
-        image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80',
         modules: [
           'SCM Standardization Frameworks',
           'Quarterly National Freight Market Reports',
@@ -331,7 +315,6 @@ export const TIER_GROUPS: TierGroup[] = [
         category: 'Carbon Telemetry',
         indexInTier: '05',
         shortDesc: 'Real-time telemetry emissions auditing, green fleet transition roadmaps, and international ESG certification.',
-        image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80',
         modules: [
           'Real-time Emissions Telemetry Hub',
           'Multi-Corridor Decarbonization Roadmap',
@@ -349,7 +332,6 @@ export const TIER_GROUPS: TierGroup[] = [
         category: 'Legal & Statutory',
         indexInTier: '06',
         shortDesc: 'National E-way bill validation, statutory motor transport compliance, toll tax clearance, and legal liaison.',
-        image: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=800&q=80',
         modules: [
           'E-way Bill Real-Time Reconciliation',
           'Motor Vehicles Act Compliance Auditing',

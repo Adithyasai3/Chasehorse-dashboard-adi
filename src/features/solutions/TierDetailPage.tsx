@@ -12,6 +12,7 @@ import {
   Sparkles 
 } from 'lucide-react';
 import { EnquiryModal } from '../../components/ui/EnquiryModal';
+import { ServiceSpotlight } from '../../components/ui/ServiceSpotlight';
 
 export const TierDetailPage: React.FC = () => {
   const { tierId } = useParams<{ tierId: string }>();
@@ -90,28 +91,23 @@ export const TierDetailPage: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {servicesInTier.map((service) => (
+            {servicesInTier.map((service, sIndex) => (
               <div
                 key={service.id}
                 className="bg-white rounded-2xl border border-[#E2DED5] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
               >
                 <div>
-                  <div className="relative h-48 w-full overflow-hidden bg-[#FAF8F5]">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute top-3 left-3 px-2 py-0.5 bg-[#171717]/80 rounded text-[10px] font-bold text-white uppercase">
-                      {service.category}
-                    </div>
-                  </div>
+                  <ServiceSpotlight
+                    index={String(sIndex + 1).padStart(2, '0')}
+                    title={service.title}
+                    category={service.category}
+                    tierLabel={`Tier ${service.tier}`}
+                    headline={service.expectedOutcomes[0]}
+                    size="sm"
+                    className="min-h-[192px]"
+                  />
 
                   <div className="p-6 space-y-3">
-                    <h3 className="font-bold text-lg text-[#171717] group-hover:text-[#FF4D16] transition-colors">
-                      {service.title}
-                    </h3>
-
                     <p className="text-xs text-[#625E58] leading-relaxed line-clamp-3">
                       {service.shortDesc}
                     </p>
@@ -134,10 +130,7 @@ export const TierDetailPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="p-6 pt-0 border-t border-[#E2DED5]/60 mt-4 flex items-center justify-between">
-                  <span className="text-xs font-mono font-bold text-[#FF4D16]">
-                    ${service.basePriceDemo}.00
-                  </span>
+                <div className="p-6 pt-4 border-t border-[#E2DED5]/60 mt-4 flex items-center justify-end">
                   <Link
                     to={`/services/${service.slug}`}
                     className="inline-flex items-center space-x-1 text-xs font-bold text-[#171717] group-hover:text-[#FF4D16] transition-colors"

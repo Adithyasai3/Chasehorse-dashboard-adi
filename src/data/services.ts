@@ -40,8 +40,7 @@ export const ALL_SERVICES: ServiceItem[] = [
     tierName: 'Tier 1 — Core Business Services',
     category: 'Digital Systems',
     shortDesc: 'End-to-end digitisation of freight contracts, RFQ approvals, inward visibility, and management information systems.',
-    fullDesc: 'ChaseHorse Digital Transformation bridges the gap between legacy paper-based transport operations and high-precision digital control. We deploy tailored Transport Management Systems (TMS), automate contract approvals, streamline online procurement, and deliver real-time inward consignment visibility across complex multi-vendor supply chains.',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80',
+    fullDesc: 'Chasehorse Digital Transformation bridges the gap between legacy paper-based transport operations and high-precision digital control. We deploy tailored Transport Management Systems (TMS), automate contract approvals, streamline online procurement, and deliver real-time inward consignment visibility across complex multi-vendor supply chains.',
     targetAudience: [
       'Manufacturing enterprises managing disparate fleet vendors',
       'FMCG & Consumer Goods distributors with high shipment velocity',
@@ -102,8 +101,7 @@ export const ALL_SERVICES: ServiceItem[] = [
     tierName: 'Tier 1 — Core Business Services',
     category: 'Field Operations',
     shortDesc: 'Vetted on-ground logistics professionals deployed at warehouses, loading/unloading sites, and 3PL hubs.',
-    fullDesc: 'CH Deploy puts verified, trained ChaseHorse operational leads directly onto your warehouse docks, loading bays, and 3PL partner facilities. Our ground teams conduct rigorous inspections, supervise delicate unloading/loading, execute physical audits, and interface directly with GST and state transport regulatory checkpoints.',
-    image: 'https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1200&q=80',
+    fullDesc: 'CH Deploy puts verified, trained Chasehorse operational leads directly onto your warehouse docks, loading bays, and 3PL partner facilities. Our ground teams conduct rigorous inspections, supervise delicate unloading/loading, execute physical audits, and interface directly with GST and state transport regulatory checkpoints.',
     targetAudience: [
       'High-value goods manufacturers requiring tamper-proof dock supervision',
       'E-commerce fulfillment centers managing high daily vehicle turnover',
@@ -123,7 +121,7 @@ export const ALL_SERVICES: ServiceItem[] = [
       'Liaison and rapid-response coordination with GST regulatory authorities',
     ],
     deliverables: [
-      'Dedicated on-site ChaseHorse Field Supervisor per dock/facility',
+      'Dedicated on-site Chasehorse Field Supervisor per dock/facility',
       'Digital pre-dispatch and post-receipt verification reports with geo-stamped photos',
       'Monthly 3PL warehouse compliance scorecard and reconciliation audit',
       'Emergency GST and toll checkpoint resolution support',
@@ -137,7 +135,7 @@ export const ALL_SERVICES: ServiceItem[] = [
       { step: 1, title: 'Site & SLA Scope Definition', description: 'Define facility operating hours, handling guidelines, and mandatory inspection parameters.' },
       { step: 2, title: 'Field Lead Matching & Training', description: 'Deployment of industry-trained personnel certified in safety, material handling, and mobile audit tools.' },
       { step: 3, title: 'Dock-level Inspection Rollout', description: 'Enforcement of rigorous truck fitness, payload limit, and cargo lashing protocols.' },
-      { step: 4, title: 'Digital Incident Capture', description: 'Instant logging of any discrepancies via ChaseHorse mobile field portal.' },
+      { step: 4, title: 'Digital Incident Capture', description: 'Instant logging of any discrepancies via Chasehorse mobile field portal.' },
       { step: 5, title: 'Weekly Governance & SLA Review', description: 'Consolidated performance review with operations leadership and 3PL partners.' },
     ],
     expectedOutcomes: [
@@ -165,7 +163,6 @@ export const ALL_SERVICES: ServiceItem[] = [
     category: 'Quality & CX',
     shortDesc: 'Structured Eight Disciplines (8D) problem-solving methodology applied to supply chain discrepancies.',
     fullDesc: 'Transform supply chain failures into permanent operational moats. Our 8D Customer Complaint framework applies aerospace and automotive grade root-cause analysis to freight delays, damaged consignments, packaging failures, and documentation errors, establishing time-bound corrective actions linked directly to customer experience scores.',
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80',
     targetAudience: [
       'B2B suppliers facing strict OTIF (On-Time In-Full) penalties from retail giants',
       'Automotive OEM suppliers managing zero-defect supply chains',
@@ -227,8 +224,7 @@ export const ALL_SERVICES: ServiceItem[] = [
     tierName: 'Tier 1 — Core Business Services',
     category: 'Safety & Compliance',
     shortDesc: 'Certified industrial safety gear, worker merchandise, and on-site HSE store deployment for operational safety.',
-    fullDesc: 'Protect your field personnel and ensure 100% compliance with OSHA, Indian Standards (IS), and EN guidelines. ChaseHorse supplies premium, branded personal protective equipment (PPE)—from EN 397 safety helmets to Kevlar-reinforced gloves, anti-static high-vis vests, and steel-toe boots. We can also deploy on-site HSE stores directly within client factories and distribution centers.',
-    image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1200&q=80',
+    fullDesc: 'Protect your field personnel and ensure 100% compliance with OSHA, Indian Standards (IS), and EN guidelines. Chasehorse supplies premium, branded personal protective equipment (PPE)—from EN 397 safety helmets to Kevlar-reinforced gloves, anti-static high-vis vests, and steel-toe boots. We can also deploy on-site HSE stores directly within client factories and distribution centers.',
     targetAudience: [
       'Factory plant managers and warehouse safety directors',
       'EPC infrastructure contractors with heavy loading and unloading operations',
@@ -249,7 +245,7 @@ export const ALL_SERVICES: ServiceItem[] = [
     ],
     deliverables: [
       'Certified PPE supply kits (helmets, vests, boots, gloves, goggles)',
-      'Physical or mobile on-site ChaseHorse HSE Store deployment',
+      'Physical or mobile on-site Chasehorse HSE Store deployment',
       'Worker sizing database and biometric/RFID gear vending integration',
       'Monthly safety audit certificates and replacement tracking',
     ],
@@ -289,8 +285,7 @@ export const ALL_SERVICES: ServiceItem[] = [
     tierName: 'Tier 1 — Core Business Services',
     category: 'Reverse Logistics',
     shortDesc: 'Systematic reverse logistics, damage triage, Return to Vendor (RTV), and inventory salvage workflows.',
-    fullDesc: 'Recover maximum residual value from customer returns, rejected shipments, and damaged consignments. ChaseHorse reverse logistics combines certified dock inspection, RMA verification, barcode scanning, salvage packaging, and expedited return routing back to manufacturers or secondary liquidation channels.',
-    image: 'https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=1200&q=80',
+    fullDesc: 'Recover maximum residual value from customer returns, rejected shipments, and damaged consignments. Chasehorse reverse logistics combines certified dock inspection, RMA verification, barcode scanning, salvage packaging, and expedited return routing back to manufacturers or secondary liquidation channels.',
     targetAudience: [
       'E-commerce platforms managing high return-to-origin (RTO) volumes',
       'White goods and electronics brands with warranty and refurbish flows',
@@ -353,8 +348,7 @@ export const ALL_SERVICES: ServiceItem[] = [
     tierName: 'Tier 2 — Strategic & Growth Services',
     category: 'Data & AI',
     shortDesc: 'Advanced TMS, data science, machine learning, generative AI integrations, and hands-on operational tech training.',
-    fullDesc: 'Elevate your logistics data from passive records into predictive competitive advantage. ChaseHorse Digital Advancement embeds predictive machine learning algorithms into your dispatch planning, utilizes generative AI for automated vendor document extraction, and delivers hands-on technical training to empower your field workforce.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
+    fullDesc: 'Elevate your logistics data from passive records into predictive competitive advantage. Chasehorse Digital Advancement embeds predictive machine learning algorithms into your dispatch planning, utilizes generative AI for automated vendor document extraction, and delivers hands-on technical training to empower your field workforce.',
     targetAudience: [
       'Enterprise logistics heads wanting predictive ETA and demand forecasting',
       'Operations teams overwhelmed by manual PDF invoice and bill-of-lading entries',
@@ -388,7 +382,7 @@ export const ALL_SERVICES: ServiceItem[] = [
       { step: 1, title: 'Historical Data Ingestion', description: 'Cleanse and index 12–24 months of dispatch, transit, and vendor performance logs.' },
       { step: 2, title: 'Model Training & Tuning', description: 'Train predictive models on lane-specific delays, loading constraints, and seasonal trends.' },
       { step: 3, title: 'AI OCR & Document Workflow', description: 'Connect automated PDF extraction to invoice matching and TMS databases.' },
-      { step: 4, title: 'Field Training & Shadowing', description: 'ChaseHorse instructors train dispatchers, dock leads, and transport managers on-site.' },
+      { step: 4, title: 'Field Training & Shadowing', description: 'Chasehorse instructors train dispatchers, dock leads, and transport managers on-site.' },
       { step: 5, title: 'Continuous Model Refinement', description: 'Automated feedback loops continuously sharpen prediction accuracy.' },
     ],
     expectedOutcomes: [
@@ -416,7 +410,6 @@ export const ALL_SERVICES: ServiceItem[] = [
     category: 'Cost Optimization',
     shortDesc: 'Algorithmic freight optimization, routes/lanes rationalization, supplier integration, and freight bill authentication.',
     fullDesc: 'Systematically eliminate dead-head miles, under-utilized truck cubes, and fraudulent freight invoicing. Our optimization suite combines 3D volumetric load calculation, linear lane consolidation algorithms, and automated three-way matching to ensure you only pay for legitimate, optimized freight movement.',
-    image: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1200&q=80',
     targetAudience: [
       'Shippers spending >₹5 Crore annually on multi-lane freight transportation',
       'Companies operating mixed fleets with low volumetric capacity utilization',
@@ -478,7 +471,6 @@ export const ALL_SERVICES: ServiceItem[] = [
     category: 'Field Engineering',
     shortDesc: 'Elite technical on-field leads, incident response squads, live quality testing, and comprehensive stock taking.',
     fullDesc: 'DEPLOY-CDX Pro provides senior, technically qualified operational commanders on the ground. Beyond basic supervision, CDX Pro leads perform high-precision barcode inventory stock taking, non-destructive material quality testing, immediate on-field incident triage (vehicle breakdowns, accidents, cargo leaks), and certified worker training programs.',
-    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80',
     targetAudience: [
       'Industrial manufacturers handling specialized, sensitive, or hazardous cargo',
       'Retail enterprises requiring high-accuracy quarterly physical stock reconciliations',
@@ -539,8 +531,7 @@ export const ALL_SERVICES: ServiceItem[] = [
     tierName: 'Tier 2 — Strategic & Growth Services',
     category: 'Fleet Operations',
     shortDesc: 'Comprehensive driver onboarding, telematics monitoring, safety training, and driver welfare accessories.',
-    fullDesc: 'Empowering the most critical human link in the logistics chain. ChaseHorse Fleet & Driver Management establishes comprehensive driver verification, telematics-based behavior scoring (speeding, harsh braking, night driving fatigue), structured health and safety training, and essential truck cabin accessories that elevate driver well-being and vehicle uptime.',
-    image: 'https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1200&q=80',
+    fullDesc: 'Empowering the most critical human link in the logistics chain. Chasehorse Fleet & Driver Management establishes comprehensive driver verification, telematics-based behavior scoring (speeding, harsh braking, night driving fatigue), structured health and safety training, and essential truck cabin accessories that elevate driver well-being and vehicle uptime.',
     targetAudience: [
       'Dedicated fleet operators managing 20+ heavy commercial vehicles',
       'Shippers committed to driver safety, road compliance, and ESG governance',
@@ -601,8 +592,7 @@ export const ALL_SERVICES: ServiceItem[] = [
     tierName: 'Tier 2 — Strategic & Growth Services',
     category: 'Sustainability',
     shortDesc: 'Scope 3 transport emissions accounting, green fleet transition, sustainable packaging, and BRSR reporting.',
-    fullDesc: 'Transform corporate sustainability pledges into verified supply chain actions. ChaseHorse provides granular, ISO 14083-compliant greenhouse gas (GHG) calculations across all transport legs, facilitates EV and alternative-fuel fleet transition, audits packaging circularity, and compiles audit-ready BRSR and GRI logistics sustainability reports.',
-    image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80',
+    fullDesc: 'Transform corporate sustainability pledges into verified supply chain actions. Chasehorse provides granular, ISO 14083-compliant greenhouse gas (GHG) calculations across all transport legs, facilitates EV and alternative-fuel fleet transition, audits packaging circularity, and compiles audit-ready BRSR and GRI logistics sustainability reports.',
     targetAudience: [
       'Listed enterprises mandated to file Business Responsibility and Sustainability Reports (BRSR)',
       'Multinational corporations committed to Science Based Targets (SBTi)',
@@ -663,8 +653,7 @@ export const ALL_SERVICES: ServiceItem[] = [
     tierName: 'Tier 2 — Strategic & Growth Services',
     category: 'Quality & CX',
     shortDesc: 'Live delivery experience tracking, customer sentiment analytics, proactive delay mitigation, and SLA governance.',
-    fullDesc: 'Your logistics execution is the definitive touchpoint of your customer brand promise. ChaseHorse Customer Experience Management (CXM) synchronizes live consignment milestones with end-customer notifications, measures post-delivery NPS, proactively flags delays before the customer notices, and enforces binding carrier SLAs.',
-    image: 'https://images.unsplash.com/photo-1556742049-0a67e5572273?auto=format&fit=crop&w=1200&q=80',
+    fullDesc: 'Your logistics execution is the definitive touchpoint of your customer brand promise. Chasehorse Customer Experience Management (CXM) synchronizes live consignment milestones with end-customer notifications, measures post-delivery NPS, proactively flags delays before the customer notices, and enforces binding carrier SLAs.',
     targetAudience: [
       'B2B distributors competing on service reliability over price alone',
       'High-value luxury, electronics, and automotive replacement parts brands',
@@ -728,7 +717,6 @@ export const ALL_SERVICES: ServiceItem[] = [
     category: 'Frontier Tech',
     shortDesc: 'Autonomous AI agent orchestration, drone inventory surveys, IoT asset telemetry, and deep learning analytics.',
     fullDesc: 'Deploy cutting-edge frontier technologies on the logistics frontline. We engineer autonomous AI agents to negotiate spot freight quotes, pilot automated drone flights for high-bay warehouse inventory scans, deploy rugged IoT environmental sensors for cold-chain assurance, and build neural network models for predictive demand sensing.',
-    image: 'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80',
     targetAudience: [
       'Large automated distribution centers (>100,000 sq.ft) with high ceilings',
       'Pharma, biologics, and cold chain shippers requiring unbroken temperature telemetry',
@@ -788,8 +776,7 @@ export const ALL_SERVICES: ServiceItem[] = [
     tierName: 'Tier 3 — Advanced Operations & Technology Services',
     category: 'Engineering & Automation',
     shortDesc: 'Certified cargo lashing techniques, palletized movement standardization, barcode/CAMS, and warehouse robotics.',
-    fullDesc: 'Elevate physical warehouse throughput and transit security. ChaseHorse Operational Advancement brings certified industrial cargo lashing methodologies (EN 12195 compliant), rapid palletized handling standards, automated camera-assisted measurement systems (CAMS), barcode sorting tunnels, and Autonomous Mobile Robots (AMRs) to your warehouse floor.',
-    image: 'https://images.unsplash.com/photo-1586528116493-a029325540fa?auto=format&fit=crop&w=1200&q=80',
+    fullDesc: 'Elevate physical warehouse throughput and transit security. Chasehorse Operational Advancement brings certified industrial cargo lashing methodologies (EN 12195 compliant), rapid palletized handling standards, automated camera-assisted measurement systems (CAMS), barcode sorting tunnels, and Autonomous Mobile Robots (AMRs) to your warehouse floor.',
     targetAudience: [
       'Heavy machinery, steel, and coil manufacturers moving oversize cargo',
       'High-throughput FMCG fulfillment facilities seeking automated pallet handling',
@@ -849,8 +836,7 @@ export const ALL_SERVICES: ServiceItem[] = [
     tierName: 'Tier 3 — Advanced Operations & Technology Services',
     category: 'Fleet Operations',
     shortDesc: 'Guaranteed truck deployment, on-road incident management, special express delivery, and cross-dock transhipment.',
-    fullDesc: 'Resilient physical transport execution for mission-critical supply chains. When standard spot markets fail, ChaseHorse Fleet Operations guarantees dedicated commercial truck deployment, provides rapid on-road incident triage squads, executes time-critical special express delivery runs, and operates dedicated cross-dock transhipment hubs across India.',
-    image: 'https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=1200&q=80',
+    fullDesc: 'Resilient physical transport execution for mission-critical supply chains. When standard spot markets fail, Chasehorse Fleet Operations guarantees dedicated commercial truck deployment, provides rapid on-road incident triage squads, executes time-critical special express delivery runs, and operates dedicated cross-dock transhipment hubs across India.',
     targetAudience: [
       'Automotive JIT (Just-In-Time) assembly plants with zero line-stop tolerance',
       'Critical infrastructure projects requiring guaranteed daily transport capacity',
@@ -884,7 +870,7 @@ export const ALL_SERVICES: ServiceItem[] = [
       { step: 1, title: 'Capacity Commitment & SLA', description: 'Lock in route volumes, vehicle specifications, and guaranteed response times.' },
       { step: 2, title: 'Dedicated Vehicle Staging', description: 'Stage vetted multi-axle and containerized vehicles near client dispatch hubs.' },
       { step: 3, title: 'Dual-Driver Express Dispatch', description: 'Execute non-stop point-to-point transit with live GPS and tamper sensor tracking.' },
-      { step: 4, title: 'Transhipment Cross-Docking', description: 'Consolidate and re-route freight at certified ChaseHorse metro terminal spaces.' },
+      { step: 4, title: 'Transhipment Cross-Docking', description: 'Consolidate and re-route freight at certified Chasehorse metro terminal spaces.' },
       { step: 5, title: 'Proof-of-Delivery & Review', description: 'Digital e-POD capture within 15 minutes of safe consignment handover.' },
     ],
     expectedOutcomes: [
@@ -910,8 +896,7 @@ export const ALL_SERVICES: ServiceItem[] = [
     tierName: 'Tier 3 — Advanced Operations & Technology Services',
     category: 'Supply Chain Consulting',
     shortDesc: 'Standardizing SCM workflows, proprietary freight market reports, rigorous vendor sourcing, and e-procurement.',
-    fullDesc: 'Transform fragmented logistics into a standardized, predictable enterprise discipline. ChaseHorse SCM & Process standardizes operating procedures across multiple warehouse and dispatch locations, publishes proprietary freight market intelligence reports, qualifies and vets new logistics vendors, and designs sustainable procurement strategies.',
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80',
+    fullDesc: 'Transform fragmented logistics into a standardized, predictable enterprise discipline. Chasehorse SCM & Process standardizes operating procedures across multiple warehouse and dispatch locations, publishes proprietary freight market intelligence reports, qualifies and vets new logistics vendors, and designs sustainable procurement strategies.',
     targetAudience: [
       'Fast-growing enterprises scaling from regional to pan-India distribution',
       'CPOs and Chief Supply Chain Officers restructuring logistics vendor networks',
@@ -926,7 +911,7 @@ export const ALL_SERVICES: ServiceItem[] = [
     ],
     features: [
       'Comprehensive SCM Standardization Manual (dock SOPs, safety, packing, invoicing)',
-      'Monthly ChaseHorse Freight Market Intelligence Reports tracking lane trends',
+      'Monthly Chasehorse Freight Market Intelligence Reports tracking lane trends',
       'Multi-stage Vendor Due Diligence Framework (financial, safety, fleet health)',
       'Centralized e-Procurement strategy aligning national volume leverage',
     ],
@@ -971,8 +956,7 @@ export const ALL_SERVICES: ServiceItem[] = [
     tierName: 'Tier 3 — Advanced Operations & Technology Services',
     category: 'Sustainability',
     shortDesc: 'Continuous real-time emissions monitoring, facility energy audits, waste minimization, and circular supply loops.',
-    fullDesc: 'Going beyond quarterly reporting to active, real-time sustainability management. ChaseHorse Sustainability & Monitoring installs automated energy sensors across warehouses, tracks live vehicle emissions per route leg, identifies packaging and plastic waste streams, and designs closed-loop circular return networks.',
-    image: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80',
+    fullDesc: 'Going beyond quarterly reporting to active, real-time sustainability management. Chasehorse Sustainability & Monitoring installs automated energy sensors across warehouses, tracks live vehicle emissions per route leg, identifies packaging and plastic waste streams, and designs closed-loop circular return networks.',
     targetAudience: [
       'Green supply chain pioneers with Net-Zero 2030/2040 board targets',
       'Warehouses seeking IGBC (Indian Green Building Council) green certification',
@@ -1032,8 +1016,7 @@ export const ALL_SERVICES: ServiceItem[] = [
     tierName: 'Tier 3 — Advanced Operations & Technology Services',
     category: 'Risk & Governance',
     shortDesc: 'Rigorous regulatory statutory audits, GST reconciliation, labor welfare verification, and legal risk governance.',
-    fullDesc: 'Shield your enterprise from catastrophic legal, tax, and regulatory liabilities. ChaseHorse Compliance & Governance executes systematic audits across all logistics contractors, ensuring 100% adherence to GST E-Way bill rules, Motor Vehicles Act provisions, statutory labor welfare norms (PF/ESIC for warehouse workers), and transit insurance coverage.',
-    image: 'https://images.unsplash.com/photo-1450133064473-71024230f91b?auto=format&fit=crop&w=1200&q=80',
+    fullDesc: 'Shield your enterprise from catastrophic legal, tax, and regulatory liabilities. Chasehorse Compliance & Governance executes systematic audits across all logistics contractors, ensuring 100% adherence to GST E-Way bill rules, Motor Vehicles Act provisions, statutory labor welfare norms (PF/ESIC for warehouse workers), and transit insurance coverage.',
     targetAudience: [
       'Corporate legal counsels, CFOs, and risk governance committees',
       'Enterprises heavily utilizing contract warehouse workers and 3PL staff',

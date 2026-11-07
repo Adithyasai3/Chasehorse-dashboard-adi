@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ALL_SERVICES } from '../../data/services';
 import { ArrowRight, CheckCircle2, ChevronRight, ShieldCheck } from 'lucide-react';
+import { ServiceSpotlight, HighlightMetrics } from '../../components/ui/ServiceSpotlight';
 
 const FEATURED_SLUGS = [
   'digital-transformation',
@@ -46,32 +47,28 @@ export const FeaturedServicesSection: React.FC = () => {
                   !isEven ? 'lg:flex-row-reverse' : ''
                 }`}
               >
-                {/* Image Column */}
+                {/* Typographic Spotlight Column */}
                 <div className={`lg:col-span-6 ${!isEven ? 'lg:order-2' : 'lg:order-1'}`}>
-                  <div className="relative rounded-3xl overflow-hidden border border-[#E2DED5] shadow-lg group">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="w-full h-[320px] sm:h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                    
-                    {/* Badge */}
-                    <div className="absolute bottom-6 left-6 right-6 flex items-center justify-between text-white">
-                      <div>
-                        <span className="text-xs font-mono uppercase tracking-widest text-[#FF4D16] block">
-                          {service.tierName}
-                        </span>
-                        <h4 className="font-bold text-lg">{service.category}</h4>
-                      </div>
-                      <Link
-                        to={`/services/${service.slug}`}
-                        className="px-4 py-2 bg-white/90 hover:bg-[#FF4D16] text-[#171717] hover:text-white rounded-xl text-xs font-bold transition-colors backdrop-blur-sm"
-                      >
-                        Details →
-                      </Link>
-                    </div>
-                  </div>
+                  <ServiceSpotlight
+                    index={String(idx + 1).padStart(2, '0')}
+                    title={service.title}
+                    category={service.category}
+                    tierLabel={`Tier ${service.tier} • Featured`}
+                    headline={service.expectedOutcomes[0]}
+                    stats={[
+                      { value: service.subservices.length, label: 'Subservices' },
+                      { value: service.deliverables.length, label: 'Deliverables' },
+                      { value: service.workflow.length, label: 'Phase workflow' },
+                    ]}
+                    className="rounded-3xl border border-[#171717] shadow-lg min-h-[320px] sm:min-h-[400px] transition-transform duration-500 hover:-translate-y-1"
+                  >
+                    <Link
+                      to={`/services/${service.slug}`}
+                      className="mt-6 inline-flex px-4 py-2 bg-white hover:bg-[#FF4D16] text-[#171717] hover:text-white rounded-xl text-xs font-bold transition-colors"
+                    >
+                      Details →
+                    </Link>
+                  </ServiceSpotlight>
                 </div>
 
                 {/* Content Column */}
@@ -99,7 +96,7 @@ export const FeaturedServicesSection: React.FC = () => {
                       {service.deliverables.slice(0, 4).map((del, dIdx) => (
                         <li key={dIdx} className="flex items-start space-x-2">
                           <CheckCircle2 className="w-4 h-4 text-[#FF4D16] shrink-0 mt-0.5" />
-                          <span>{del}</span>
+                          <span><HighlightMetrics text={del} tone="dark" /></span>
                         </li>
                       ))}
                     </ul>

@@ -15,6 +15,7 @@ import {
   MessageSquare
 } from 'lucide-react';
 import { EnquiryModal } from '../../components/ui/EnquiryModal';
+import { ServiceSpotlight, AccentTitle, HighlightMetrics } from '../../components/ui/ServiceSpotlight';
 
 export const ServiceDetailPage: React.FC = () => {
   const { serviceSlug } = useParams<{ serviceSlug: string }>();
@@ -38,6 +39,9 @@ export const ServiceDetailPage: React.FC = () => {
       </div>
     );
   }
+
+  const indexInTier =
+    ALL_SERVICES.filter((s) => s.tier === service.tier).findIndex((s) => s.id === service.id) + 1;
 
   // Related services in the same tier or complementary
   const relatedServices = ALL_SERVICES.filter(
@@ -73,7 +77,7 @@ export const ServiceDetailPage: React.FC = () => {
                 </div>
 
                 <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-                  {service.title}
+                  <AccentTitle title={service.title} />
                 </h1>
 
                 <p className="text-sm sm:text-base text-[#E2DED5]/90 leading-relaxed max-w-xl">
@@ -109,7 +113,7 @@ export const ServiceDetailPage: React.FC = () => {
                 </button>
 
                 <a
-                  href={`https://wa.me/919876543210?text=Hi%20ChaseHorse%2C%20I%20am%20inquiring%20about%20${encodeURIComponent(service.title)}`}
+                  href={`https://wa.me/917337369111?text=Hi%20Chasehorse%2C%20I%20am%20inquiring%20about%20${encodeURIComponent(service.title)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-5 py-3.5 bg-[#25D366] text-white font-bold rounded-xl hover:bg-[#1EBE5D] transition-colors text-sm flex items-center space-x-2"
@@ -127,15 +131,22 @@ export const ServiceDetailPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Image */}
-            <div className="lg:col-span-5 relative min-h-[260px] lg:min-h-full">
-              <img
-                src={service.image}
-                alt={service.title}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-[#171717] via-[#171717]/40 to-transparent" />
-            </div>
+            {/* Right Typographic Outcomes Panel */}
+            <ServiceSpotlight
+              index={String(indexInTier).padStart(2, '0')}
+              title="Measurable Outcomes"
+              category={service.category}
+              tierLabel={`Tier ${service.tier} • Capability ${String(indexInTier).padStart(2, '0')}`}
+              headline={service.expectedOutcomes[0]}
+              points={service.expectedOutcomes.slice(1, 3)}
+              stats={[
+                { value: service.subservices.length, label: 'Modules' },
+                { value: service.workflow.length, label: 'Phases' },
+                { value: 'SLA', label: 'Governed' },
+              ]}
+              size="md"
+              className="lg:col-span-5 min-h-[260px] lg:min-h-full border-t lg:border-t-0 lg:border-l border-white/10"
+            />
 
           </div>
         </div>
@@ -269,7 +280,7 @@ export const ServiceDetailPage: React.FC = () => {
               {service.expectedOutcomes.map((out, oIdx) => (
                 <li key={oIdx} className="flex items-start space-x-2.5">
                   <CheckCircle2 className="w-4 h-4 text-[#FF4D16] shrink-0 mt-0.5" />
-                  <span>{out}</span>
+                  <span><HighlightMetrics text={out} tone="dark" /></span>
                 </li>
               ))}
             </ul>

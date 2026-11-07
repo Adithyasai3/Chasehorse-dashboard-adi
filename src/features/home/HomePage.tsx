@@ -4,7 +4,6 @@ import { WhoWeAre } from './WhoWeAre';
 import { GelpLayersBand } from './GelpLayersBand';
 import { WhyGelp } from './WhyGelp';
 import { ThreeTierSection } from './ThreeTierSection';
-import { PlatformBenefitsSection } from './PlatformBenefitsSection';
 
 export const HomePage: React.FC = () => {
   return (
@@ -18,14 +17,11 @@ export const HomePage: React.FC = () => {
       {/* What sits inside GELP: dark band with the four operational layers */}
       <GelpLayersBand />
 
-      {/* 3. Section 2: Why ChaseHorse G.E.L.P.? (Redesigned) */}
+      {/* 3. Section 2: Why Chasehorse G.E.L.P.? (Redesigned) */}
       <WhyGelp />
 
       {/* 4. Our Service Categories (Tier 1, Tier 2, Tier 3) */}
       <ThreeTierSection />
-
-      {/* 5. Platform (GELP) Benefits */}
-      <PlatformBenefitsSection />
     </div>
   );
 };

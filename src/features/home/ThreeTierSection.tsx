@@ -16,6 +16,11 @@ import {
   type ServiceCategoryItem, 
   type TierGroup 
 } from '../../data/serviceTiers';
+import { ServiceSpotlight } from '../../components/ui/ServiceSpotlight';
+import { ALL_SERVICES } from '../../data/services';
+
+const outcomeFor = (slug: string) =>
+  ALL_SERVICES.find((s) => s.slug === slug)?.expectedOutcomes[0];
 
 // Re-export types & data so existing imports remain backwards-compatible
 export { TIER_GROUPS, type ServiceCategoryItem, type TierGroup };
@@ -174,7 +179,6 @@ export const ThreeTierSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch relative">
           {TIER_GROUPS.map((group) => {
             const isTierActive = activeTierId === group.tier;
-            const isTier3 = group.tier === 3;
 
             return (
               <motion.div
@@ -252,14 +256,10 @@ export const ThreeTierSection: React.FC = () => {
                 </div>
 
                 {/* Bottom Action Bar: "Explore More →" */}
-                <div className={`p-4 border-t border-[#E2DED5] ${
-                  isTier3 ? 'bg-[#171717] text-white' : 'bg-white text-[#171717]'
-                }`}>
+                <div className="p-4 border-t border-[#E2DED5] bg-white text-[#171717]">
                   <Link
                     to={group.exploreLink}
-                    className={`inline-flex items-center justify-between w-full text-xs sm:text-sm font-bold group ${
-                      isTier3 ? 'text-white hover:text-[#FF4D16]' : 'text-[#171717] hover:text-[#FF4D16]'
-                    }`}
+                    className="inline-flex items-center justify-between w-full text-xs sm:text-sm font-bold group text-[#171717] hover:text-[#FF4D16]"
                   >
                     <span>Explore More</span>
                     <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1.5" />
@@ -311,45 +311,24 @@ export const ThreeTierSection: React.FC = () => {
                 />
               )}
 
-              {/* Top Image with Slow Hover Zoom */}
-              <div className="relative h-36 w-full overflow-hidden bg-[#FAF8F5] group">
-                <img
-                  src={activeService.image}
-                  alt={activeService.title}
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                
-                {/* Badges over image */}
-                <div className="absolute top-2.5 left-2.5 flex items-center space-x-1.5">
-                  <span className="px-2 py-0.5 rounded bg-[#171717]/85 backdrop-blur-sm text-white text-[10px] font-mono font-bold">
-                    Tier {activeService.tier} • {activeService.indexInTier}
-                  </span>
-                  <span className="px-2 py-0.5 rounded bg-[#FF4D16] text-white text-[10px] font-bold">
-                    {activeService.category}
-                  </span>
-                </div>
-
-                <div className="absolute bottom-2 left-2.5 right-2.5 flex items-center justify-between text-white text-[10px]">
-                  <span className="bg-black/50 backdrop-blur-sm px-2 py-0.5 rounded font-mono">
-                    {activeService.modules.length} Capabilities
-                  </span>
-                  <span className="bg-[#10B981] px-1.5 py-0.2 rounded font-bold">
-                    Active in 6 Hubs
-                  </span>
-                </div>
-              </div>
+              {/* Typographic Header */}
+              <ServiceSpotlight
+                index={activeService.indexInTier}
+                title={activeService.title}
+                category={activeService.category}
+                tierLabel={`Tier ${activeService.tier}`}
+                headline={outcomeFor(activeService.slug)}
+                stats={[
+                  { value: activeService.modules.length, label: 'Capabilities' },
+                  { value: 6, label: 'Active hubs' },
+                ]}
+                size="sm"
+              />
 
               {/* Card Body with Staggered Reveal */}
               <div className="p-4 space-y-3">
-                
+
                 <div className="space-y-1">
-                  <span className="text-[10px] font-mono font-bold text-[#FF4D16] uppercase tracking-wider block">
-                    SERVICE CAPABILITY {activeService.indexInTier}
-                  </span>
-                  <h4 className="text-base font-extrabold text-[#171717] leading-tight">
-                    {activeService.title}
-                  </h4>
                   <p className="text-xs text-[#625E58] leading-relaxed line-clamp-3">
                     {activeService.shortDesc}
                   </p>
@@ -429,21 +408,21 @@ export const ThreeTierSection: React.FC = () => {
                   </button>
                 </div>
 
-                <div className="rounded-xl overflow-hidden h-40 w-full relative">
-                  <img
-                    src={mobileModalService.image}
-                    alt={mobileModalService.title}
-                    className="w-full h-full object-cover"
-                  />
-                  <span className="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-[#FF4D16] text-white text-[10px] font-bold">
-                    {mobileModalService.category}
-                  </span>
-                </div>
+                <ServiceSpotlight
+                  index={mobileModalService.indexInTier}
+                  title={mobileModalService.title}
+                  category={mobileModalService.category}
+                  tierLabel={`Tier ${mobileModalService.tier}`}
+                  headline={outcomeFor(mobileModalService.slug)}
+                  stats={[
+                    { value: mobileModalService.modules.length, label: 'Capabilities' },
+                    { value: 6, label: 'Active hubs' },
+                  ]}
+                  size="md"
+                  className="rounded-xl"
+                />
 
                 <div className="space-y-1">
-                  <h3 className="text-lg font-bold text-[#171717]">
-                    {mobileModalService.title}
-                  </h3>
                   <p className="text-xs text-[#625E58] leading-relaxed">
                     {mobileModalService.shortDesc}
                   </p>

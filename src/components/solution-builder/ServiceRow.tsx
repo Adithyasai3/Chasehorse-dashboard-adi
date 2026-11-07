@@ -15,12 +15,6 @@ interface ServiceRowProps {
   isHoveredOrActive: boolean;
 }
 
-const currencyFormatter = new Intl.NumberFormat('en-IN', {
-  style: 'currency',
-  currency: 'INR',
-  maximumFractionDigits: 0,
-});
-
 export const ServiceRow = React.memo(
   forwardRef<HTMLLabelElement, ServiceRowProps>(function ServiceRow(
     {
@@ -104,17 +98,8 @@ export const ServiceRow = React.memo(
           </span>
         </div>
 
-        {/* Right Side: Price + Mobile Touch Info Button */}
+        {/* Right Side: Mobile Touch Info Button */}
         <div className="flex items-center space-x-2.5 shrink-0 ml-2">
-          <span
-            className="text-xs sm:text-sm font-mono font-bold tracking-tight"
-            style={{
-              color: isSelected ? 'var(--acc)' : 'var(--ink)',
-            }}
-          >
-            {currencyFormatter.format(service.price)}
-          </span>
-
           {/* Info pill button for touch devices */}
           <button
             type="button"

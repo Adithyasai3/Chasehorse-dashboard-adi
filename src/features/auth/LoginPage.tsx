@@ -59,7 +59,7 @@ export const LoginPage: React.FC = () => {
           <div className="relative z-10 space-y-2">
             <img
               src="/chasehorse-logo.png"
-              alt="ChaseHorse"
+              alt="Chasehorse"
               className="h-10 w-auto filter invert"
             />
             <span className="text-[10px] font-mono uppercase tracking-widest text-[#FF4D16] block">
@@ -106,7 +106,7 @@ export const LoginPage: React.FC = () => {
                 Welcome Back
               </h1>
               <p className="text-xs text-[#625E58]">
-                Sign into your verified ChaseHorse account to manage deployments and invoices.
+                Sign into your verified Chasehorse account to manage deployments and invoices.
               </p>
             </div>
 

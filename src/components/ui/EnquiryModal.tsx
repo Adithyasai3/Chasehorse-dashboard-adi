@@ -113,7 +113,7 @@ export const EnquiryModal: React.FC<EnquiryModalProps> = ({
 
               <div className="pt-2 flex flex-col sm:flex-row gap-2">
                 <a
-                  href={`https://wa.me/919876543210?text=Hi%20ChaseHorse%2C%20I%20just%20submitted%20consultation%20request%20${ticketId}`}
+                  href={`https://wa.me/917337369111?text=Hi%20Chasehorse%2C%20I%20just%20submitted%20consultation%20request%20${ticketId}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 py-3 bg-[#25D366] text-white text-xs font-bold rounded-xl flex items-center justify-center space-x-1.5 hover:bg-[#1EBE5D] transition-colors"

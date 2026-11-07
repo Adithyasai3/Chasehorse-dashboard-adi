@@ -16,11 +16,11 @@ export const VerifiedContactBar: React.FC = () => {
               DIRECT LINK
             </span>
             <a 
-              href="mailto:letsconnect@chasehorse.com" 
+              href="mailto:shravan.vibhas@chasehorse.com" 
               className="font-bold text-[#171717] hover:text-[#ff4d12] transition-colors flex items-center space-x-1"
             >
               <Mail className="w-3.5 h-3.5 text-[#ff4d12]" />
-              <span>letsconnect@chasehorse.com</span>
+              <span>shravan.vibhas@chasehorse.com</span>
             </a>
           </div>
 

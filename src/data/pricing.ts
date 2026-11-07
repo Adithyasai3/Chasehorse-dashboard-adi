@@ -1,5 +1,5 @@
 /**
- * Centralized Service Pricing Model for ChaseHorse GELP
+ * Centralized Service Pricing Model for Chasehorse GELP
  *
  * All figures from the source PDF / mockup are strictly marked as unapproved sample data.
  * When approved: false, the UI displays "Price on request" unless the user enables demo mode pricing.
@@ -13,7 +13,7 @@ export interface ServicePricing {
   samplePriceUSD: number;
   currency: 'USD' | 'INR';
   billingUnit: string;
-  approved: boolean; // Flagged as false until ChaseHorse commercial team approves rate cards
+  approved: boolean; // Flagged as false until Chasehorse commercial team approves rate cards
   notes: string;
 }
 

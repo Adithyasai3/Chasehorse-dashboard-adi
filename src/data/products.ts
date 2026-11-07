@@ -4,7 +4,7 @@ export const HSE_PRODUCTS: Product[] = [
   {
     id: 'prod-1',
     slug: 'ch-pro-ventilated-safety-helmet',
-    name: 'ChaseHorse Pro-Guard Ventilated Safety Helmet',
+    name: 'Chasehorse Pro-Guard Ventilated Safety Helmet',
     category: 'helmets',
     categoryLabel: 'Safety Helmets',
     price: 649,
@@ -40,7 +40,7 @@ export const HSE_PRODUCTS: Product[] = [
   {
     id: 'prod-2',
     slug: 'ch-field-armor-safety-shoes',
-    name: 'ChaseHorse FieldArmor S3 Steel-Toe Safety Boots',
+    name: 'Chasehorse FieldArmor S3 Steel-Toe Safety Boots',
     category: 'footwear',
     categoryLabel: 'Safety Footwear',
     price: 1899,
@@ -75,7 +75,7 @@ export const HSE_PRODUCTS: Product[] = [
   {
     id: 'prod-3',
     slug: 'ch-high-vis-executive-vest',
-    name: 'ChaseHorse Executive Hi-Vis Reflective Vest (Class 2)',
+    name: 'Chasehorse Executive Hi-Vis Reflective Vest (Class 2)',
     category: 'jackets',
     categoryLabel: 'Reflective Wear',
     price: 499,
@@ -108,7 +108,7 @@ export const HSE_PRODUCTS: Product[] = [
   {
     id: 'prod-4',
     slug: 'ch-turnkey-complete-ppe-kit',
-    name: 'ChaseHorse Master Logistics PPE Kit (7-in-1)',
+    name: 'Chasehorse Master Logistics PPE Kit (7-in-1)',
     category: 'ppe-kits',
     categoryLabel: 'PPE Kits',
     price: 2999,
@@ -129,7 +129,7 @@ export const HSE_PRODUCTS: Product[] = [
     variants: {
       sizes: ['Shoe UK 7 / Vest L', 'Shoe UK 8 / Vest XL', 'Shoe UK 9 / Vest XL', 'Shoe UK 10 / Vest 2XL'],
       colors: [
-        { name: 'Official ChaseHorse Edition', hex: '#FF4D16' },
+        { name: 'Official Chasehorse Edition', hex: '#FF4D16' },
       ],
     },
     inStock: true,
@@ -139,7 +139,7 @@ export const HSE_PRODUCTS: Product[] = [
   {
     id: 'prod-5',
     slug: 'ch-anti-cut-grip-gloves',
-    name: 'ChaseHorse ArmorGrip Cut Level 5 Nitrile Work Gloves',
+    name: 'Chasehorse ArmorGrip Cut Level 5 Nitrile Work Gloves',
     category: 'protection',
     categoryLabel: 'Hand Protection',
     price: 249,
@@ -169,7 +169,7 @@ export const HSE_PRODUCTS: Product[] = [
   {
     id: 'prod-6',
     slug: 'ch-cargo-ratchet-lashing-belt-5t',
-    name: 'ChaseHorse Heavy-Duty Ratchet Lashing Belt (5 Ton, 10m)',
+    name: 'Chasehorse Heavy-Duty Ratchet Lashing Belt (5 Ton, 10m)',
     category: 'spill-lashing',
     categoryLabel: 'Cargo Lashing',
     price: 1199,
@@ -191,7 +191,7 @@ export const HSE_PRODUCTS: Product[] = [
     variants: {
       sizes: ['10 Meters (5T)', '12 Meters (5T)'],
       colors: [
-        { name: 'ChaseHorse Signal Orange', hex: '#FF4D16' },
+        { name: 'Chasehorse Signal Orange', hex: '#FF4D16' },
       ],
     },
     inStock: true,

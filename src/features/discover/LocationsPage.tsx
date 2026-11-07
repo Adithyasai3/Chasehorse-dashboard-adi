@@ -99,7 +99,7 @@ export const LocationsPage: React.FC = () => {
                     <span>{loc.contact}</span>
                   </span>
                   <a
-                    href={`https://wa.me/919876543210?text=Hi%20ChaseHorse%20${loc.name}%20Branch`}
+                    href={`https://wa.me/917337369111?text=Hi%20Chasehorse%20${loc.name}%20Branch`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-bold text-[#FF4D16] hover:underline"
@@ -122,7 +122,7 @@ export const LocationsPage: React.FC = () => {
               Find Offline HSE Safety Stores
             </h3>
             <p className="text-xs sm:text-sm text-[#625E58] max-w-xl">
-              Physical ChaseHorse HSE safety depots are collocated at each of our 6 metro logistics terminals, carrying certified PPE kits, helmets, and steel-toe footwear in stock for immediate walk-in collection.
+              Physical Chasehorse HSE safety depots are collocated at each of our 6 metro logistics terminals, carrying certified PPE kits, helmets, and steel-toe footwear in stock for immediate walk-in collection.
             </p>
           </div>
 

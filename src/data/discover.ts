@@ -15,7 +15,7 @@ export const DISCOVER_COURSES = [
       'Module 3: Cargo Lashing & Weight Distribution Physics',
       'Module 4: Mobile Field Audit Tools & Real-Time Incident Logging',
     ],
-    certification: 'ChaseHorse Certified Field Supervisor Credential',
+    certification: 'Chasehorse Certified Field Supervisor Credential',
   },
   {
     id: 'course-2',
@@ -33,7 +33,7 @@ export const DISCOVER_COURSES = [
       'Module 3: D5-D6 Permanent Corrective Actions Verification',
       'Module 4: D7-D8 Systemic Prevention and Executive Reporting',
     ],
-    certification: 'ChaseHorse Supply Chain Quality Practitioner',
+    certification: 'Chasehorse Supply Chain Quality Practitioner',
   },
   {
     id: 'course-3',
@@ -69,7 +69,7 @@ export const DISCOVER_COURSES = [
       'Module 3: Material Handling Ergonomics & Safe Lifting',
       'Module 4: Emergency Evacuation, Fire Fighting & First Aid',
     ],
-    certification: 'ChaseHorse HSE Workplace Safety Pass',
+    certification: 'Chasehorse HSE Workplace Safety Pass',
   },
 ];
 
@@ -111,7 +111,7 @@ export const DISCOVER_STORIES = [
       { label: 'Dock Turnaround Time', value: '-38%' },
       { label: 'Annual Cost Saved', value: '₹1.8 Cr' },
     ],
-    summary: 'The client faced frequent damage to precision machined gears moving between Pune and Chennai. ChaseHorse deployed dedicated dock supervisors who enforced custom rubber-damped lashing and photographic gate inspections, virtually wiping out transit breakage.',
+    summary: 'The client faced frequent damage to precision machined gears moving between Pune and Chennai. Chasehorse deployed dedicated dock supervisors who enforced custom rubber-damped lashing and photographic gate inspections, virtually wiping out transit breakage.',
   },
   {
     id: 'story-2',
@@ -123,7 +123,7 @@ export const DISCOVER_STORIES = [
       { label: 'Inventory Discrepancy', value: '0.04%' },
       { label: 'E-Way Bill Penalties', value: 'Zero' },
     ],
-    summary: 'By deploying ChaseHorse Digital Transformation and automated E-way bill cross-checks, the brand eliminated transit detention notices and established unified C-suite visibility across 45 third-party regional logistics depots.',
+    summary: 'By deploying Chasehorse Digital Transformation and automated E-way bill cross-checks, the brand eliminated transit detention notices and established unified C-suite visibility across 45 third-party regional logistics depots.',
   },
   {
     id: 'story-3',
@@ -135,7 +135,7 @@ export const DISCOVER_STORIES = [
       { label: 'Crane Idle Time', value: '0 hrs' },
       { label: 'Special Deliveries', value: '180 FTLs' },
     ],
-    summary: 'Navigating remote desert terrain with oversize solar trailers required flawless coordination. ChaseHorse managed dedicated pilot escorts, dual-driver shifts, and emergency roadside response to meet critical commissioning deadlines.',
+    summary: 'Navigating remote desert terrain with oversize solar trailers required flawless coordination. Chasehorse managed dedicated pilot escorts, dual-driver shifts, and emergency roadside response to meet critical commissioning deadlines.',
   },
 ];
 
@@ -152,7 +152,7 @@ export const DISCOVER_RESOURCES = [
     type: 'Operational Template',
     size: 'Audit Ready Form',
     downloads: '6.8k',
-    description: 'The exact 42-point vehicle fitness and dock safety checklist utilized daily by ChaseHorse CH Deploy teams.',
+    description: 'The exact 42-point vehicle fitness and dock safety checklist utilized daily by Chasehorse CH Deploy teams.',
   },
   {
     title: 'E-Way Bill & GST Checkpoint Survival Guide for Logistics Managers',

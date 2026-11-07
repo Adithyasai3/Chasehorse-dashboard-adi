@@ -21,7 +21,7 @@ export const ChaseHorseLogo: React.FC<ChaseHorseLogoProps> = ({
     <div className={`inline-flex flex-col items-center select-none ${className}`}>
       <img
         src={LOGO_SRC}
-        alt="ChaseHorse"
+        alt="Chasehorse"
         draggable={false}
         className={`block w-full h-auto ${isLight ? 'brightness-0 invert' : ''}`}
       />

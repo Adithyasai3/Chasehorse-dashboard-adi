@@ -1,19 +1,21 @@
 /**
- * ChaseHorse Platform Configuration & Central Constants
+ * Chasehorse Platform Configuration & Central Constants
  * Flags unapproved data and provides standardized contact/API helpers.
  */
 
 export const APP_CONFIG = {
   // Brand details
-  companyName: 'ChaseHorse',
+  companyName: 'Chasehorse',
   tagline: 'Growth Enabling Logiworkx Partner',
   platformName: 'Growth Enabler Logiworkx Platform (GELP)',
 
-  // Contact placeholders (to be confirmed by ChaseHorse)
-  WHATSAPP_NUMBER: '919876543210', // [CONTENT TO BE APPROVED: Real WhatsApp contact number]
+  // Official contact details
+  WHATSAPP_NUMBER: '917337369111', // +91 73373 69111
   WHATSAPP_GROUP_LINK: 'https://chat.whatsapp.com/DEMO_CHASEHORSE_PARTNERS', // [CONTENT TO BE APPROVED: Official Partner Group]
-  SUPPORT_EMAIL: 'contact@chasehorse.com', // [CONTENT TO BE APPROVED]
-  SUPPORT_PHONE: '+91 (80) 4560-9900', // [CONTENT TO BE APPROVED]
+  SUPPORT_EMAIL: 'shravan.vibhas@chasehorse.com',
+  SUPPORT_PHONE: '+91 73373 69111',
+  // Receives Design Your Solution blueprints, hero enquiries and network enquiries
+  ENQUIRY_WHATSAPP_NUMBER: '917337369111',
 
   // Official verified Google Partner Form link (exact)
   GOOGLE_PARTNER_FORM: 'https://forms.gle/QmiddiuRkaRLbesEA',

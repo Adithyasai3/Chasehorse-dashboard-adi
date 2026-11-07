@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { HSE_PRODUCTS } from '../../data/products';
 import { Product } from '../../types';
@@ -28,6 +28,11 @@ export const HseShopPage: React.FC = () => {
   const [sortBy, setSortBy] = useState<'featured' | 'price-low' | 'price-high' | 'rating'>('featured');
   const [storeRequestOpen, setStoreRequestOpen] = useState(false);
   const [checkoutModalOpen, setCheckoutModalOpen] = useState(actionParam === 'checkout');
+
+  // Follow the ?category= link (e.g. from the navbar) even when already on the shop page
+  useEffect(() => {
+    setSelectedCategory(categoryParam || 'all');
+  }, [categoryParam]);
 
   const { addToCart, setIsCartOpen } = useCart();
 
@@ -59,7 +64,7 @@ export const HseShopPage: React.FC = () => {
                 ● STATUTORY INDUSTRIAL SAFETY
               </span>
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-                Official ChaseHorse HSE Shop
+                Official Chasehorse HSE Shop
               </h1>
               <p className="text-sm sm:text-base text-[#E2DED5]/90 leading-relaxed font-light">
                 Certified Personal Protective Equipment (PPE), heavy-duty lashing gear, and ergonomic worker apparel engineered for Indian warehouse docks and freight corridors.
@@ -95,7 +100,7 @@ export const HseShopPage: React.FC = () => {
                 We Deploy Our Store & Manage Compliance
               </h4>
               <p className="text-xs text-[#E2DED5]/80 leading-relaxed">
-                ChaseHorse installs and stocks a managed safety dispensing depot directly inside your manufacturing plant or distribution center. Zero inventory carrying cost for the client; workers access approved PPE with biometric/ID allocation.
+                Chasehorse installs and stocks a managed safety dispensing depot directly inside your manufacturing plant or distribution center. Zero inventory carrying cost for the client; workers access approved PPE with biometric/ID allocation.
               </p>
               <div className="pt-2 text-[11px] text-[#FF4D16] font-mono font-bold">
                 OSHA • IS 2925 • DGMS Standard Compliance
