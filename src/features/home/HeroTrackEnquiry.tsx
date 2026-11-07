@@ -26,7 +26,7 @@ const SERVICE_OPTIONS = [
 
 /** Hero right-hand card: track an order, or send a quick enquiry over WhatsApp. */
 export const HeroTrackEnquiry: React.FC = () => {
-  const [tab, setTab] = useState<Tab>('track');
+  const [tab, setTab] = useState<Tab>('enquiry');
 
   // Track
   const [query, setQuery] = useState('');
@@ -65,10 +65,10 @@ export const HeroTrackEnquiry: React.FC = () => {
   return (
     <div className="bg-white rounded-3xl border border-[#E2DED5] shadow-[0_24px_60px_-20px_rgba(23,23,23,0.18)] overflow-hidden">
       {/* Tabs */}
-      <div role="tablist" aria-label="Track or enquire" className="grid grid-cols-2 p-1.5 m-4 mb-0 rounded-2xl bg-[#F4F1EA]">
+      <div role="tablist" aria-label="Enquire or track" className="grid grid-cols-2 p-1.5 m-4 mb-0 rounded-2xl bg-[#F4F1EA]">
         {([
-          { id: 'track', label: 'Track', icon: PackageSearch },
           { id: 'enquiry', label: 'Enquiry', icon: MessageSquareText },
+          { id: 'track', label: 'Track', icon: PackageSearch },
         ] as const).map(({ id, label, icon: Icon }) => {
           const active = tab === id;
           return (
