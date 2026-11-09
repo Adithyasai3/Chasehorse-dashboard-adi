@@ -38,7 +38,30 @@ export const SiteHeader: React.FC<{ onOpenSearch?: () => void }> = ({ onOpenSear
   const location = useLocation();
   const { itemCount, setIsCartOpen } = useCart();
 
+  const closeTimer = useRef<number | null>(null);
+
+  const cancelClose = () => {
+    if (closeTimer.current !== null) {
+      window.clearTimeout(closeTimer.current);
+      closeTimer.current = null;
+    }
+  };
+
+  // Hover: open immediately, close after a short grace period so the cursor
+  // can travel from the nav item down into the dropdown without it flickering shut.
+  const hoverOpen = (id: string) => {
+    cancelClose();
+    setOpenId(id);
+  };
+  const hoverClose = () => {
+    cancelClose();
+    closeTimer.current = window.setTimeout(() => setOpenId(null), 150);
+  };
+
+  useEffect(() => cancelClose, []);
+
   const closeAll = () => {
+    cancelClose();
     setOpenId(null);
     setMobileOpen(false);
     setMobileExpanded(null);
@@ -70,7 +93,7 @@ export const SiteHeader: React.FC<{ onOpenSearch?: () => void }> = ({ onOpenSear
   const sections = openItem?.megaMenu?.sections ?? [];
 
   return (
-    <header ref={headerRef} className="sticky top-0 z-40 w-full bg-white">
+    <header ref={headerRef} onMouseLeave={hoverClose} className="sticky top-0 z-40 w-full bg-white">
       <div className="relative z-20 bg-white">
         <div className="mx-auto max-w-[1440px] px-4 sm:px-6 lg:px-12">
           <div className="flex items-center justify-between h-16">
@@ -79,7 +102,7 @@ export const SiteHeader: React.FC<{ onOpenSearch?: () => void }> = ({ onOpenSear
               <ChaseHorseLogo variant="dark" showTagline={false} className="w-36 sm:w-40 h-auto" />
             </Link>
 
-            {/* Desktop navigation — centred, click to open */}
+            {/* Desktop navigation — centred, opens on hover (click/keyboard also work) */}
             <nav className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-1" aria-label="Main">
               {NAV_ITEMS.map((item) => {
                 const isOpen = openId === item.id;
@@ -89,7 +112,9 @@ export const SiteHeader: React.FC<{ onOpenSearch?: () => void }> = ({ onOpenSear
                     type="button"
                     aria-expanded={isOpen}
                     aria-controls="site-nav-dropdown"
-                    onClick={() => setOpenId(isOpen ? null : item.id)}
+                    onMouseEnter={() => hoverOpen(item.id)}
+                    onFocus={() => hoverOpen(item.id)}
+                    onClick={() => hoverOpen(item.id)}
                     className={`px-4 py-1.5 rounded text-sm font-semibold text-[#171A20] transition-colors ${
                       isOpen ? 'bg-[#F4F4F4]' : 'hover:bg-[#F4F4F4]'
                     }`}
@@ -162,6 +187,7 @@ export const SiteHeader: React.FC<{ onOpenSearch?: () => void }> = ({ onOpenSear
         <>
           <div
             id="site-nav-dropdown"
+            onMouseEnter={cancelClose}
             className="hidden lg:block absolute z-20 left-0 right-0 top-full bg-white"
           >
             <div className="mx-auto max-w-5xl px-12 pt-5 pb-7">
@@ -190,6 +216,7 @@ export const SiteHeader: React.FC<{ onOpenSearch?: () => void }> = ({ onOpenSear
           <div
             aria-hidden
             onClick={closeAll}
+            onMouseEnter={hoverClose}
             className="hidden lg:block fixed inset-0 top-16 z-10 bg-black/10 backdrop-blur-[2px]"
           />
         </>
