@@ -17,8 +17,8 @@ export const APP_CONFIG = {
   // Receives Design Your Solution blueprints, hero enquiries and network enquiries
   ENQUIRY_WHATSAPP_NUMBER: '917337369111',
 
-  // Official verified Google Partner Form link (exact)
-  GOOGLE_PARTNER_FORM: 'https://forms.gle/QmiddiuRkaRLbesEA',
+  // On-site partner onboarding form (replaces the old Google Form)
+  PARTNER_APPLY_PATH: '/partners/apply',
 
   // Prototype & Demo state flags
   IS_DEMO_MODE: true,

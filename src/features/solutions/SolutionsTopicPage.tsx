@@ -65,9 +65,9 @@ export const SolutionsTopicPage: React.FC<{ topic: SolutionsTopic }> = ({ topic 
         title: 'Partner Ecosystem',
         intro: 'Connecting shippers, transporters, terminal yard owners, and financial institutions into a single network with verified SLAs.',
         actions: (
-          <a href="https://forms.gle/QmiddiuRkaRLbesEA" target="_blank" rel="noopener noreferrer" className={primaryBtn}>
-            Open Official Partner Form <ArrowRight className="w-4 h-4" />
-          </a>
+          <Link to="/partners/apply" className={primaryBtn}>
+            Apply as a Partner <ArrowRight className="w-4 h-4" />
+          </Link>
         ),
         body: (
           <>
@@ -79,14 +79,12 @@ export const SolutionsTopicPage: React.FC<{ topic: SolutionsTopic }> = ({ topic 
             </div>
             <div className="bg-white rounded-2xl border border-[#E2DED5] p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <span className="text-sm font-semibold text-[#171717]">Are you a logistics professional or transporter? Join our network.</span>
-              <a
-                href="https://forms.gle/QmiddiuRkaRLbesEA"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/partners/apply"
                 className="px-5 py-2.5 bg-[#FF4D16] text-white text-xs font-bold rounded-xl hover:bg-[#E53E0B] transition-colors whitespace-nowrap"
               >
-                Open Official Partner Form →
-              </a>
+                Apply as a Partner →
+              </Link>
             </div>
           </>
         ),

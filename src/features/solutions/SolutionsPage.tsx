@@ -210,14 +210,12 @@ export const SolutionsPage: React.FC = () => {
             <span className="text-xs font-semibold text-[#625E58]">
               Are you a logistics professional or transporter? Join our network:
             </span>
-            <a
-              href="https://forms.gle/QmiddiuRkaRLbesEA"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              to="/partners/apply"
               className="px-5 py-2.5 bg-[#FF4D16] text-white text-xs font-bold rounded-xl hover:bg-[#E53E0B] transition-colors"
             >
-              Open Official Partner Form →
-            </a>
+              Apply as a Partner →
+            </Link>
           </div>
         </div>
 

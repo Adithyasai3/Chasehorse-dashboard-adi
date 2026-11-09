@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Users, 
   Truck, 
   Warehouse, 
-  ExternalLink, 
   ShieldCheck, 
   CheckCircle2, 
   MessageSquare, 
@@ -40,15 +40,13 @@ export const PartnersPage: React.FC = () => {
             </p>
 
             <div className="pt-4 flex flex-wrap gap-3">
-              <a
-                href="https://forms.gle/QmiddiuRkaRLbesEA"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                to="/partners/apply"
                 className="px-6 py-3.5 bg-[#FF4D16] text-white font-bold rounded-xl hover:bg-[#E53E0B] transition-colors text-sm flex items-center space-x-2 shadow-lg"
               >
                 <span>Complete Partner Onboarding Form</span>
-                <ExternalLink className="w-4 h-4" />
-              </a>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
 
               <a
                 href="https://wa.me/917337369111?text=Hi%20Chasehorse%2C%20I%20want%20to%20join%20the%20Partner%20Network"
@@ -98,22 +96,19 @@ export const OnFieldPartnerSection: React.FC<{ onEnquire: (title: string) => voi
           </p>
         </div>
 
-        {/* Direct Official Google Form Card */}
+        {/* On-site registration card */}
         <div className="p-6 bg-[#FAF8F5] rounded-2xl border border-[#E2DED5] text-center space-y-3 shrink-0 md:w-80">
           <span className="text-[11px] font-mono text-[#FF4D16] font-bold block uppercase">
-            Official Google Registration
+            Field Partner Registration
           </span>
-          <p className="text-xs text-[#625E58]">Submit your personal credentials and work experience directly to our HR team.</p>
-          <a
-            href="https://forms.gle/QmiddiuRkaRLbesEA"
-            target="_blank"
-            rel="noopener noreferrer"
+          <p className="text-xs text-[#625E58]">Submit your personal details and work experience directly to our HR team.</p>
+          <Link
+            to="/partners/apply?type=on-field"
             className="w-full py-3 bg-[#FF4D16] hover:bg-[#E53E0B] text-white font-bold rounded-xl text-xs flex items-center justify-center space-x-2 shadow-sm transition-colors"
           >
-            <span>Fill Google Form Now</span>
-            <ExternalLink className="w-3.5 h-3.5" />
-          </a>
-          <span className="text-[10px] text-[#8C877D] block">https://forms.gle/QmiddiuRkaRLbesEA</span>
+            <span>Apply Now</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
       </div>
 

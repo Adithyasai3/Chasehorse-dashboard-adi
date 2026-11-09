@@ -22,6 +22,7 @@ import { HseShopPage } from '../features/hse-shop/HseShopPage';
 import { ProductDetailPage } from '../features/hse-shop/ProductDetailPage';
 import { PartnersPage } from '../features/partners/PartnersPage';
 import { PartnersTopicPage } from '../features/partners/PartnersTopicPage';
+import { PartnerApplyPage } from '../features/partners/PartnerApplyPage';
 import { CareersPage } from '../features/careers/CareersPage';
 import { CareersTopicPage } from '../features/careers/CareersTopicPage';
 import { OnsiteStorePage } from '../features/hse-shop/OnsiteStorePage';
@@ -103,6 +104,7 @@ export const AppRoutes: React.FC = () => {
 
         {/* Partners & Careers */}
         <Route path="/partners" element={<PartnersPage />} />
+        <Route path="/partners/apply" element={<PartnerApplyPage />} />
         <Route path="/partners/on-field" element={<PartnersTopicPage topic="on-field" />} />
         <Route path="/partners/transportation" element={<PartnersTopicPage topic="transportation" />} />
         <Route path="/partners/terminal-space" element={<PartnersTopicPage topic="terminal-space" />} />

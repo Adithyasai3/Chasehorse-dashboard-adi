@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ExternalLink, MessageSquare } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, MessageSquare } from 'lucide-react';
 import { SubPageShell } from '../../components/layout/SubPageShell';
 import { EnquiryModal } from '../../components/ui/EnquiryModal';
 import { OnFieldPartnerSection, TransportPartnerSection, TerminalPartnerSection } from './PartnersPage';
@@ -39,14 +40,12 @@ export const PartnersTopicPage: React.FC<{ topic: PartnersTopic }> = ({ topic })
       intro={page.intro}
       actions={
         <>
-          <a
-            href="https://forms.gle/QmiddiuRkaRLbesEA"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to={`/partners/apply?type=${topic}`}
             className="px-6 py-3.5 bg-[#FF4D16] text-white font-bold rounded-xl hover:bg-[#E53E0B] transition-colors text-sm inline-flex items-center gap-2 shadow-lg"
           >
-            Complete Partner Onboarding Form <ExternalLink className="w-4 h-4" />
-          </a>
+            Complete Partner Onboarding Form <ArrowRight className="w-4 h-4" />
+          </Link>
           <a
             href="https://wa.me/917337369111?text=Hi%20Chasehorse%2C%20I%20want%20to%20join%20the%20Partner%20Network"
             target="_blank"

@@ -219,14 +219,9 @@ export const LoginPage: React.FC = () => {
           {/* Social or Partner Links */}
           <div className="pt-4 border-t border-[#E2DED5] flex items-center justify-between text-xs text-[#625E58]">
             <span>Don&apos;t have an account?</span>
-            <a
-              href="https://forms.gle/QmiddiuRkaRLbesEA"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-bold text-[#FF4D16] hover:underline"
-            >
+            <Link to="/partners/apply" className="font-bold text-[#FF4D16] hover:underline">
               Apply to Partner Network →
-            </a>
+            </Link>
           </div>
 
         </div>

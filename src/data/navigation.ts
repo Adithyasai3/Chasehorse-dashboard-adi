@@ -153,11 +153,11 @@ export const MAIN_NAVIGATION: MainNavItem[] = [
         {
           title: 'Company & Network',
           items: [
+            { title: 'India Logistics Network', description: 'Explore logistics locations and potential paths across India', path: '/discover/network' },
             { title: 'Customer Stories', description: 'Enterprise case studies and verified impact metrics', path: '/discover/stories' },
             { title: 'Events & Webinars', description: 'Industry roundtables and supply chain summits', path: '/discover/events' },
-            { title: 'About Us', description: 'The Chasehorse story, mission, and leadership', path: '/discover/about' },
             { title: 'Find Us', description: 'Our hubs on the India operations map', path: '/locations' },
-            { title: 'India Logistics Network', description: 'Explore logistics locations and potential paths across India', path: '/discover/network' },
+            { title: 'About Us', description: 'The Chasehorse story, mission, and leadership', path: '/discover/about' },
           ],
         },
         {
@@ -166,8 +166,6 @@ export const MAIN_NAVIGATION: MainNavItem[] = [
           items: [
             { title: 'Jobs on Platform', description: 'Engineering, product, sales & business roles', path: '/careers/jobs' },
             { title: 'Internships', description: 'Ground operations and digital supply chain traineeships', path: '/discover/internships' },
-            { title: 'On-field Logistics Leads', description: 'Dock leads, warehouse supervisors, and auditors', path: '/careers/on-field' },
-            { title: 'Transportation Specialists', description: 'Fleet coordinators, dispatchers & lane leads', path: '/careers/transportation' },
             { title: 'Culture & Benefits', description: 'Health insurance, career fast-track, stock options', path: '/careers/culture' },
             { title: 'Graduate Trainee Program', description: '12-month rotation across India operations hubs', path: '/careers/graduates' },
           ],
@@ -214,12 +212,12 @@ export const MAIN_NAVIGATION: MainNavItem[] = [
       featuredDescription: 'Grow your logistics business with steady freight, verified clients, and rapid payment cycles.',
       featuredImage: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=600&q=80',
       featuredCtaText: 'Complete Onboarding Form',
-      featuredCtaPath: 'https://forms.gle/QmiddiuRkaRLbesEA',
+      featuredCtaPath: '/partners/apply',
       sections: [
         {
           title: 'Partner Categories',
           items: [
-            { title: 'On-field Logistics Professionals', description: 'Join our vetted network of ground supervisors & auditors', path: '/partners/on-field', badge: 'Google Form' },
+            { title: 'On-field Logistics Professionals', description: 'Join our vetted network of ground supervisors & auditors', path: '/partners/on-field' },
             { title: 'Transportation Professionals', description: 'Transporters, Fleet Owners, Drivers & Freight Traders', path: '/partners/transportation' },
             { title: 'Truck Terminal Space Owners', description: 'List your yard, warehouse bay, or secure truck parking', path: '/partners/terminal-space' },
           ],
@@ -227,7 +225,7 @@ export const MAIN_NAVIGATION: MainNavItem[] = [
         {
           title: 'Fast Track Onboarding',
           items: [
-            { title: 'Official Google Partner Form', description: 'Submit KYC & capability profile directly', path: 'https://forms.gle/QmiddiuRkaRLbesEA', external: true },
+            { title: 'Partner Application Form', description: 'Submit your profile and capabilities directly', path: '/partners/apply', badge: 'Apply' },
             { title: 'Partner WhatsApp Group', description: 'Direct updates on daily spot loads and lane tenders', path: 'https://wa.me/917337369111?text=Hi%20Chasehorse%2C%20I%20want%20to%20join%20the%20Partner%20Network', external: true },
           ],
         },
