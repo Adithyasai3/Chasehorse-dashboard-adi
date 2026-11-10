@@ -1,27 +1,25 @@
 import React from 'react';
 import { HeroSection } from './HeroSection';
-import { WhoWeAre } from './WhoWeAre';
 import { GelpLayersBand } from './GelpLayersBand';
-import { WhyGelp } from './WhyGelp';
 import { ThreeTierSection } from './ThreeTierSection';
+import { IndiaLogisticsNetwork } from '../discover/network/IndiaLogisticsNetwork';
 
 export const HomePage: React.FC = () => {
   return (
     <div className="w-full bg-[#f3f0e8]">
-      {/* 1. Hero Section: Split 50/50 with India Map */}
+      {/* 1. Hero Section */}
       <HeroSection />
-
-      {/* 2. Section 1: Who We Are (Redesigned) */}
-      <WhoWeAre />
 
       {/* What sits inside GELP: dark band with the four operational layers */}
       <GelpLayersBand />
 
-      {/* 3. Section 2: Why Chasehorse G.E.L.P.? (Redesigned) */}
-      <WhyGelp />
-
-      {/* 4. Our Service Categories (Tier 1, Tier 2, Tier 3) */}
+      {/* 2. Our Service Categories (Tier 1, Tier 2, Tier 3) */}
       <ThreeTierSection />
+
+      {/* 3. India Logistics Network */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <IndiaLogisticsNetwork />
+      </div>
     </div>
   );
 };

@@ -10,7 +10,6 @@ import {
   Layers,
   ChevronRight,
   ExternalLink,
-  Zap,
   Building2,
   Check
 } from 'lucide-react';
@@ -35,12 +34,6 @@ export const HeroSection: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <div className="lg:col-span-7 space-y-6">
             
-            {/* Eyebrow */}
-            <div className="inline-flex items-center space-x-2 text-xs font-mono font-bold tracking-wider text-[#FF4D16] uppercase">
-              <span className="w-2.5 h-2.5 border-2 border-[#FF4D16] rounded-sm bg-[#FF4D16]/20 inline-block" />
-              <span>LOGISTICS &amp; SUPPLY CHAIN · INDIA</span>
-            </div>
-
             {/* Main Editorial Headline */}
             <div className="space-y-5">
               <h1 className="text-[#171717]">
@@ -128,19 +121,6 @@ export const HeroSection: React.FC = () => {
                   <span className="w-1.5 h-1.5 rounded-full bg-[#171717]" />
                   <span>Market Integrated</span>
                 </span>
-              </div>
-            </div>
-
-            {/* Onboarding Thunderspeed Strip (From Image 3) */}
-            <div className="p-3.5 rounded-2xl bg-white border border-[#E2DED5] flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-xs shadow-sm">
-              <div className="flex items-center space-x-2">
-                <Zap className="w-4 h-4 text-[#FF4D16] fill-[#FF4D16]/20" />
-                <span className="font-bold text-[#171717]">Thunderspeed Onboarding:</span>
-              </div>
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] font-mono">
-                <span className="text-[#FF4D16] font-bold">24h Tier 1 Strategy Deployment</span>
-                <span className="hidden sm:inline text-[#8C877D]">•</span>
-                <span className="text-[#171717] font-bold">48h Tier 2 Operations Scale</span>
               </div>
             </div>
 
