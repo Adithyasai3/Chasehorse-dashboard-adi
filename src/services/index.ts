@@ -156,12 +156,86 @@ export interface ConsultationRequest {
   message?: string;
 }
 
+/** Ticket / reference ID in the existing CH-REQ-XXXXXX format. */
+export function generateReferenceId(): string {
+  return `CH-REQ-${Math.floor(100000 + Math.random() * 900000)}`;
+}
+
+// Live service requests (hero Live | Track widget)
+export const REQUEST_STATUSES = ['Received', 'Under Review', 'In Progress', 'Completed'] as const;
+export type RequestStatus = (typeof REQUEST_STATUSES)[number];
+
+export interface ServiceRequestInput {
+  referenceId: string;
+  name: string;
+  phone: string;
+  email: string;
+  company: string;
+  service: string;
+  message?: string;
+}
+
+export interface ServiceRequestRecord extends ServiceRequestInput {
+  createdAt: string;
+  updatedAt: string;
+  status: RequestStatus;
+  assignedTeam?: string;
+  history: { status: RequestStatus; at: string; note?: string }[];
+}
+
+/**
+ * DEMO persistence: requests are kept in this browser's localStorage until the
+ * backend phase replaces it with a real API + database. Tracking therefore only
+ * finds requests raised from the same browser.
+ */
+const REQUESTS_KEY = 'chasehorse_service_requests';
+
+function loadRequests(): ServiceRequestRecord[] {
+  try {
+    const raw = localStorage.getItem(REQUESTS_KEY);
+    return raw ? (JSON.parse(raw) as ServiceRequestRecord[]) : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveRequests(list: ServiceRequestRecord[]) {
+  try {
+    localStorage.setItem(REQUESTS_KEY, JSON.stringify(list));
+  } catch {
+    /* storage unavailable (private mode etc.) — request still goes out via WhatsApp */
+  }
+}
+
+const digitsOnly = (v: string) => v.replace(/\D/g, '').slice(-10);
+
 export const enquiryService = {
   async submitEnquiry(req: ConsultationRequest): Promise<ApiResponse<{ ticketId: string }>> {
     return mockDelay(
-      { ticketId: `CH-REQ-${Math.floor(100000 + Math.random() * 900000)}` },
+      { ticketId: generateReferenceId() },
       'Enquiry submitted. Operations lead will reach out within 2 hours.'
     );
+  },
+
+  async createServiceRequest(req: ServiceRequestInput): Promise<ApiResponse<ServiceRequestRecord>> {
+    const now = new Date().toISOString();
+    const record: ServiceRequestRecord = {
+      ...req,
+      createdAt: now,
+      updatedAt: now,
+      status: 'Received',
+      history: [{ status: 'Received', at: now, note: 'Request raised from website' }],
+    };
+    saveRequests([record, ...loadRequests()]);
+    return mockDelay(record, 'Service request logged (demo mode)');
+  },
+
+  async trackServiceRequest(referenceId: string, phone: string): Promise<ApiResponse<ServiceRequestRecord | null>> {
+    const id = referenceId.trim().toUpperCase();
+    const match = loadRequests().find(
+      (r) => r.referenceId.toUpperCase() === id && digitsOnly(r.phone) === digitsOnly(phone)
+    );
+    return mockDelay(match ?? null, match ? 'Request found' : 'No matching request');
   },
 };
 

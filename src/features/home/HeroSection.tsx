@@ -153,7 +153,7 @@ export const HeroSection: React.FC = () => {
 
           </div>
 
-          {/* ================= RIGHT: TRACK + ENQUIRY ================= */}
+          {/* ================= RIGHT: LIVE + TRACK ================= */}
           <div className="lg:col-span-5">
             <HeroTrackEnquiry />
           </div>
