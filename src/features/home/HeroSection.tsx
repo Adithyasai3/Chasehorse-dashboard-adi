@@ -35,15 +35,21 @@ export const HeroSection: React.FC = () => {
           <div className="lg:col-span-7 space-y-6">
             
             {/* Main Editorial Headline */}
-            <div className="space-y-5">
+            <div className="space-y-4">
+              {/* Sub-headline (sits above the headline) */}
+              <p className="flex flex-wrap items-baseline gap-x-2 gap-y-1 text-base sm:text-lg lg:text-xl font-bold text-[#171717] tracking-tight">
+                <span className="font-mono text-[#FF4D16]">GELP</span>
+                <span aria-hidden className="text-[#8C877D]">&ndash;</span>
+                <span>Growth Enabled Logiworkx Platform</span>
+              </p>
               <h1 className="text-[#171717]">
                 <motion.span
                   initial={{ opacity: 0, y: 14 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                  className="block font-hero font-extrabold text-[32px] sm:text-[50px] lg:text-[40px] xl:text-[50px] leading-[1.02] tracking-[-0.035em]"
+                  className="block font-hero font-extrabold text-[34px] sm:text-[52px] lg:text-[44px] xl:text-[54px] leading-[1.02] tracking-[-0.035em]"
                 >
-                  You grow the business.
+                  India&rsquo;s First
                 </motion.span>
 
                 <motion.span
@@ -52,8 +58,11 @@ export const HeroSection: React.FC = () => {
                   transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
                   className="mt-1 inline-flex flex-col"
                 >
-                  <span className="font-serif italic font-normal text-[#FF4D16] text-[54px] sm:text-[80px] lg:text-[68px] xl:text-[86px] leading-[0.95] tracking-[-0.02em] pr-2">
-                    We move it.
+                  <span className="font-serif italic font-normal text-[#FF4D16] text-[40px] min-[400px]:text-[44px] sm:text-[68px] lg:text-[56px] xl:text-[70px] leading-[0.98] tracking-[-0.02em] pr-2">
+                    Muscled Supply Chain
+                  </span>
+                  <span className="font-hero font-extrabold text-[#171717] text-[34px] sm:text-[52px] lg:text-[44px] xl:text-[54px] leading-[1.02] tracking-[-0.035em]">
+                    Network.
                   </span>
 
                   {/* Route: origin → line draws in once → delivered */}
@@ -76,27 +85,13 @@ export const HeroSection: React.FC = () => {
                       <Check className="w-3 h-3" strokeWidth={3.5} />
                     </motion.span>
                   </span>
-
-                  <motion.span
-                    initial={{ opacity: 0, y: 4 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 1.4 }}
-                    className="mt-2 flex items-center justify-between gap-3 font-mono text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.16em] whitespace-nowrap"
-                  >
-                    <span className="text-[#8C877D]">First mile</span>
-                    <span className="text-[#FF4D16]">Every mile tracked</span>
-                    <span className="text-[#171717]">Last mile, done</span>
-                  </motion.span>
                 </motion.span>
               </h1>
-              <div className="text-sm sm:text-base font-mono font-bold text-[#FF4D16]">
-                Growth Enabler Logiworkx Platform [ GELP ]
-              </div>
             </div>
 
-            {/* Subtitle Paragraph (From Who We Are in Image 2) */}
-            <p className="text-sm sm:text-base text-[#625E58] leading-relaxed max-w-xl">
-              From warehousing and fleet management to freight and last-mile delivery, Chasehorse handles your logistics end to end. Our Logistics-as-a-Service (LaaS) platform gives you a plug-and-play setup with ready-to-deploy resources. One partner, one platform, full visibility.
+            {/* Description */}
+            <p className="text-[15px] sm:text-base lg:text-[17px] text-[#625E58] leading-[1.7] max-w-xl">
+              <strong className="font-bold text-[#171717]">ChaseHorse</strong> brings together ready-to-deploy vetted on-ground talent, intelligent logistics tech, sustainability frameworks and an established market ecosystem seamlessly integrated to scale your operations without bottlenecks, at the best cost and with a high-CX model, enabling businesses to scale rapidly.
             </p>
 
             {/* The 4 Core Capability Pillars (From Odoo Website in Image 1 & 2) */}
@@ -127,27 +122,19 @@ export const HeroSection: React.FC = () => {
             {/* Primary Action Buttons */}
             <div className="pt-2 flex flex-wrap items-center gap-3">
               <Link
-                to="/solutions"
-                className="px-6 py-3.5 bg-[#FF4D16] hover:bg-[#E53E0B] text-white font-bold rounded-xl text-sm flex items-center space-x-2 shadow-lg shadow-[#FF4D16]/25 transition-all group"
+                to="/discover/network"
+                className="w-full sm:w-auto justify-center px-6 py-3.5 bg-[#FF4D16] hover:bg-[#E53E0B] text-white font-bold rounded-xl text-sm flex items-center space-x-2 shadow-lg shadow-[#FF4D16]/25 transition-all group"
               >
-                <span>Explore Services</span>
+                <span>Explore the Network</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
 
               <Link
-                to="/design-your-solution"
-                className="px-5 py-3.5 bg-white hover:bg-[#FAF8F5] text-[#171717] border border-[#E2DED5] hover:border-[#171717] font-bold rounded-xl text-sm transition-all shadow-sm"
+                to="/partners"
+                className="group/partner w-full sm:w-auto justify-center px-5 py-3.5 bg-white hover:bg-[#FAF8F5] text-[#171717] border border-[#E2DED5] hover:border-[#171717] font-bold rounded-xl text-sm inline-flex items-center gap-2 transition-all shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF4D16]"
               >
-                <span>Design Your Solution</span>
-              </Link>
-
-              {/* Third CTA: same white style as Design Your Solution */}
-              <Link
-                to="/contact"
-                className="group/contact px-5 py-3.5 bg-white hover:bg-[#FAF8F5] text-[#171717] border border-[#E2DED5] hover:border-[#171717] font-bold rounded-xl text-sm inline-flex items-center gap-2 transition-all shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#FF4D16]"
-              >
-                <span>Contact Us</span>
-                <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover/contact:translate-x-0.5 motion-reduce:transition-none" />
+                <span>Partner with GELP</span>
+                <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover/partner:translate-x-0.5 motion-reduce:transition-none" />
               </Link>
             </div>
 
